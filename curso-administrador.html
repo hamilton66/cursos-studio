@@ -4,680 +4,404 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curso Admin — Agenda Studio Sônia Salomão</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gold:#B8943F;--gold-dark:#8A6A20;--gold-light:#F5EDD8;--gold-pale:#FDFAF2;
-  --rose:#C8869A;--dark:#0F0E0A;--mid:#3A3020;--muted:#6A5A40;
-  --border:#E0D0A8;--white:#fff;--bg:#FDFAF2;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh}
-
-.capa{background:var(--dark);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
-.capa::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(184,148,63,0.2) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(200,134,154,0.1) 0%,transparent 50%)}
-.capa-badge{background:var(--gold);color:#3A2000;font-size:11px;padding:5px 14px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;display:inline-block;font-weight:500}
-.capa h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,68px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:16px}
+:root{--gold:#B8943F;--gold-dark:#8A6A20;--gold-light:#F5EDD8;--dark:#0F0E0A;--mid:#3A3020;--muted:#6A5A40;--border:#E0D0A8;--white:#fff;--bg:#FDFAF2;--rose:#C8869A}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark)}
+a{text-decoration:none;color:inherit}
+ 
+.capa{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background:radial-gradient(ellipse at 20% 50%,rgba(184,148,63,0.2),transparent 60%),#0F0E0A}
+.badge{background:var(--gold);color:#3A2000;font-size:11px;padding:5px 14px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;display:inline-block;font-weight:500}
+.capa h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,76px);font-weight:300;color:white;line-height:1.1;margin-bottom:16px}
 .capa h1 em{color:var(--gold);font-style:italic}
 .capa p{font-size:16px;color:rgba(255,255,255,0.55);max-width:500px;line-height:1.6;margin-bottom:40px}
-.capa-info{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.capa-info-item{text-align:center}
-.capa-info-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);font-weight:600}
-.capa-info-lbl{font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px}
-.btn-start{background:var(--gold-dark);color:white;border:none;padding:16px 36px;border-radius:30px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.3s}
-.btn-start:hover{background:var(--gold);color:#3A2000;transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,148,63,0.4)}
-
-.nav{position:fixed;top:0;left:0;right:0;background:var(--dark);z-index:100;padding:12px 24px;display:none;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)}
-.nav.show{display:flex}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold);letter-spacing:1px}
-.nav-progress{flex:1;max-width:300px;margin:0 24px}
-.nav-bar{height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
-.nav-bar-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s ease}
-.nav-text{font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px}
+.stats{display:flex;gap:40px;justify-content:center;margin-bottom:48px}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);font-weight:600;display:block}
+.stat-l{font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px}
+.btn{display:inline-block;background:var(--gold-dark);color:white;padding:16px 40px;border-radius:30px;font-size:15px;font-weight:500;letter-spacing:0.5px}
+.btn:hover{background:var(--gold);color:#3A2000}
+.btn-sec{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:12px 24px;border-radius:20px;font-size:13px;margin-top:16px;display:inline-block}
+.btn-sec:hover{border-color:var(--gold);color:var(--gold)}
+ 
+.modulo{max-width:780px;margin:0 auto;padding:48px 20px 60px}
+.mod-top{background:var(--dark);padding:20px 24px;border-radius:12px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.mod-top-info .num{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+.mod-top-info .titulo{font-family:'Cormorant Garamond',serif;font-size:22px;color:white;font-weight:600}
 .nav-btns{display:flex;gap:8px}
-.nav-btn{background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.5);padding:6px 14px;border-radius:16px;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.nav-btn{background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:8px 16px;border-radius:16px;font-size:12px;display:inline-block}
 .nav-btn:hover{border-color:var(--gold);color:var(--gold)}
-
-.modulo{display:none;padding:80px 20px 60px;max-width:820px;margin:0 auto}
-.modulo.active{display:block;animation:fadeUp 0.5s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-.mod-header{margin-bottom:36px}
-.mod-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-light);color:var(--gold-dark);font-size:11px;padding:4px 12px;border-radius:10px;font-weight:500;margin-bottom:8px}
-.mod-num{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-weight:500;margin-bottom:8px}
-.mod-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,46px);font-weight:600;line-height:1.2;margin-bottom:12px}
-.mod-desc{font-size:15px;color:var(--muted);line-height:1.7}
-
-.secao{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0}
-.secao-title{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.secao-icon{width:26px;height:26px;border-radius:50%;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-
-.passo{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.nav-btn.next{background:var(--gold-dark);color:white;border-color:var(--gold-dark)}
+.nav-btn.next:hover{background:var(--gold);color:#3A2000}
+ 
+h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;margin-bottom:10px;line-height:1.2}
+.desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+ 
+.card{background:white;border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:14px}
+.card-title{font-size:13px;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.icon{width:26px;height:26px;border-radius:50%;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.passo{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
 .passo:last-child{margin-bottom:0}
-.passo-num{width:26px;height:26px;border-radius:50%;background:var(--gold-dark);color:white;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.passo-text{font-size:14px;color:var(--mid);line-height:1.6}
-.passo-text strong{color:var(--dark)}
-
-.dica{background:var(--gold-light);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 16px;margin:16px 0;font-size:13px;color:#5A3D10;line-height:1.7}
-.dica strong{display:block;margin-bottom:4px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--gold-dark)}
-
-.avancado{background:var(--dark);border-radius:12px;padding:20px 24px;margin:16px 0}
+.num{width:26px;height:26px;border-radius:50%;background:var(--gold-dark);color:white;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.passo p{font-size:14px;color:var(--mid);line-height:1.6}
+.passo p strong{color:var(--dark)}
+ 
+.dica{background:var(--gold-light);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;font-size:13px;color:#5A3D10;line-height:1.6}
+.dica strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
+ 
+.avancado{background:var(--dark);border-radius:12px;padding:20px 24px;margin:14px 0}
 .avancado-badge{font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;font-weight:500}
-.avancado p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:10px}
+.avancado p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:8px}
 .avancado p:last-child{margin-bottom:0}
 .avancado code{background:rgba(255,255,255,0.08);color:var(--gold);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12px}
-
-.automacao-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;margin:10px 0;display:flex;gap:14px;align-items:flex-start}
-.automacao-icon{font-size:24px;flex-shrink:0;margin-top:2px}
-.automacao-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:4px}
-.automacao-desc{font-size:13px;color:var(--muted);line-height:1.6}
-.automacao-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:8px;font-weight:500;margin-top:6px}
+ 
+.script-box{background:var(--dark);border-radius:12px;padding:20px 24px;margin:20px 0;position:relative}
+.script-badge{position:absolute;top:-10px;left:20px;background:var(--gold-dark);color:white;font-size:10px;padding:3px 10px;border-radius:10px;letter-spacing:1px;text-transform:uppercase}
+.script-box p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.8;font-style:italic}
+ 
+.auto-card{background:white;border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:10px 0;display:flex;gap:14px;align-items:flex-start}
+.auto-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.auto-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:4px}
+.auto-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:8px;font-weight:500;margin-top:6px}
 .tag-easy{background:#E8F5E9;color:#2A5A3A}
 .tag-med{background:var(--gold-light);color:var(--gold-dark)}
 .tag-hard{background:#FEEEEE;color:#7A1010}
-
-.script{background:var(--dark);border-radius:12px;padding:20px 24px;margin:20px 0;position:relative}
-.script-badge{position:absolute;top:-10px;left:20px;background:var(--gold-dark);color:white;font-size:10px;padding:3px 10px;border-radius:10px;letter-spacing:1px;text-transform:uppercase}
-.script p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.8;font-style:italic}
-.script-copy{position:absolute;top:16px;right:16px;background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.4);padding:4px 10px;border-radius:8px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.script-copy:hover{border-color:var(--gold);color:var(--gold)}
-
+ 
 .checklist{display:flex;flex-direction:column;gap:8px}
-.check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all 0.2s}
-.check-item:hover{border-color:var(--gold)}
-.check-item.done{background:var(--gold-light);border-color:var(--gold)}
-.check-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all 0.2s}
-.check-item.done .check-box{background:var(--gold-dark);border-color:var(--gold-dark);color:white}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:white;border:1px solid var(--border);border-radius:8px}
+.check-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold-dark)}
 .check-text{font-size:13px;color:var(--mid);line-height:1.5}
-
-.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:20px 0}
-.index-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:all 0.2s}
-.index-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 12px rgba(184,148,63,0.15)}
-.index-card-num{font-size:11px;color:var(--gold);font-weight:500;margin-bottom:4px}
-.index-card-title{font-size:13px;font-weight:500;color:var(--dark)}
-.index-card-time{font-size:11px;color:var(--muted);margin-top:4px}
-
-.mod-nav{display:flex;gap:12px;margin-top:40px;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.mod-nav-btn{background:var(--gold-dark);color:white;border:none;padding:12px 24px;border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;transition:all 0.2s}
-.mod-nav-btn:hover{background:var(--gold);color:#3A2000}
-.mod-nav-btn.secondary{background:none;border:1px solid var(--border);color:var(--mid)}
-.mod-nav-btn.secondary:hover{border-color:var(--gold);color:var(--gold-dark)}
-
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:16px 0}
-.kpi{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+ 
+.prompts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:14px 0}
+.prompt{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:8px 10px;font-size:11px;color:rgba(255,255,255,0.55);line-height:1.5}
+ 
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:16px 0}
+.kpi{background:white;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
 .kpi-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold-dark)}
 .kpi-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:3px}
-
-@media(max-width:600px){.mod-nav{flex-direction:column}}
+ 
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.index-card{background:white;border:1px solid var(--border);border-radius:10px;padding:16px;display:block;transition:all 0.2s}
+.index-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 12px rgba(184,148,63,0.15)}
+.ic-num{font-size:11px;color:var(--gold);font-weight:500;margin-bottom:4px}
+.ic-title{font-size:13px;font-weight:500;color:var(--dark)}
+.ic-time{font-size:11px;color:var(--muted);margin-top:4px}
+ 
+.prog{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.prog-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.prog-dot.done{background:var(--gold-dark)}
+ 
+.fim{background:var(--dark);border-radius:16px;padding:32px;text-align:center;margin-top:28px}
+.fim h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:white;margin-bottom:8px}
+.fim p{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px;max-width:440px;margin-left:auto;margin-right:auto}
+ 
+@media(max-width:600px){.stats{gap:24px}.mod-top{flex-direction:column}.prompts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
+ 
 <!-- CAPA -->
-<div id="capa">
-  <div class="capa">
-    <div class="capa-badge">⚙️ Curso Administrador</div>
-    <h1>Gestão &<br><em>Automação</em><br>da Agenda</h1>
-    <p>Curso completo para administradores. Gerencie, analise e automatize a Agenda Studio Sônia Salomão para máxima eficiência.</p>
-    <div class="capa-info">
-      <div class="capa-info-item"><div class="capa-info-num">7</div><div class="capa-info-lbl">Módulos</div></div>
-      <div class="capa-info-item"><div class="capa-info-num">~60</div><div class="capa-info-lbl">Minutos</div></div>
-      <div class="capa-info-item"><div class="capa-info-num">15+</div><div class="capa-info-lbl">Automações</div></div>
-    </div>
-    <button class="btn-start" onclick="startCurso()">Começar →</button>
+<div class="capa" id="capa">
+  <div class="badge">⚙️ Curso Administrador</div>
+  <h1>Gestão &<br><em>Automação</em><br>da Agenda</h1>
+  <p>Curso completo para administradores. Gerencie, analise e automatize a Agenda Studio Sônia Salomão para máxima eficiência.</p>
+  <div class="stats">
+    <div><span class="stat-n">7</span><span class="stat-l">Módulos</span></div>
+    <div><span class="stat-n">~60</span><span class="stat-l">Minutos</span></div>
+    <div><span class="stat-n">15+</span><span class="stat-l">Automações</span></div>
   </div>
+  <a href="#indice" class="btn">Começar →</a>
 </div>
-
-<!-- NAV -->
-<div class="nav" id="nav">
-  <div class="nav-logo">SS Admin</div>
-  <div class="nav-progress">
-    <div class="nav-bar"><div class="nav-bar-fill" id="progress-bar" style="width:0%"></div></div>
-    <div class="nav-text" id="progress-text">Índice</div>
-  </div>
-  <div class="nav-btns">
-    <button class="nav-btn" onclick="goTo(0)">Índice</button>
-  </div>
-</div>
-
+ 
 <!-- ÍNDICE -->
-<div class="modulo" id="mod-0">
-  <div class="mod-header">
-    <div class="mod-num">Curso Administrador</div>
-    <h1 class="mod-title">O que você vai dominar</h1>
-    <p class="mod-desc">Gestão completa, relatórios, automações e uso máximo do sistema.</p>
+<div class="modulo" id="indice">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Curso Administrador</div><div class="titulo">O que você vai dominar</div></div>
+    <div class="nav-btns"><a href="#capa" class="nav-btn">↑ Topo</a><a href="#mod1" class="nav-btn next">Começar →</a></div>
   </div>
   <div class="index-grid">
-    <div class="index-card" onclick="goTo(1)"><div class="index-card-num">Módulo 1</div><div class="index-card-title">Painel de controle</div><div class="index-card-time">⏱ ~8 min</div></div>
-    <div class="index-card" onclick="goTo(2)"><div class="index-card-num">Módulo 2</div><div class="index-card-title">Gestão de usuários e acessos</div><div class="index-card-time">⏱ ~8 min</div></div>
-    <div class="index-card" onclick="goTo(3)"><div class="index-card-num">Módulo 3</div><div class="index-card-title">Relatórios e faturamento</div><div class="index-card-time">⏱ ~10 min</div></div>
-    <div class="index-card" onclick="goTo(4)"><div class="index-card-num">Módulo 4</div><div class="index-card-title">Automações com WhatsApp</div><div class="index-card-time">⏱ ~10 min</div></div>
-    <div class="index-card" onclick="goTo(5)"><div class="index-card-num">Módulo 5</div><div class="index-card-title">Assistente IA — uso avançado</div><div class="index-card-time">⏱ ~8 min</div></div>
-    <div class="index-card" onclick="goTo(6)"><div class="index-card-num">Módulo 6</div><div class="index-card-title">Manutenção e atualizações</div><div class="index-card-time">⏱ ~8 min</div></div>
-    <div class="index-card" onclick="goTo(7)"><div class="index-card-num">Módulo 7</div><div class="index-card-title">Roadmap e próximos passos</div><div class="index-card-time">⏱ ~8 min</div></div>
+    <a href="#mod1" class="index-card"><div class="ic-num">Módulo 1</div><div class="ic-title">Painel de controle</div><div class="ic-time">⏱ ~8 min</div></a>
+    <a href="#mod2" class="index-card"><div class="ic-num">Módulo 2</div><div class="ic-title">Usuários e acessos</div><div class="ic-time">⏱ ~8 min</div></a>
+    <a href="#mod3" class="index-card"><div class="ic-num">Módulo 3</div><div class="ic-title">Relatórios e faturamento</div><div class="ic-time">⏱ ~10 min</div></a>
+    <a href="#mod4" class="index-card"><div class="ic-num">Módulo 4</div><div class="ic-title">Automações WhatsApp</div><div class="ic-time">⏱ ~10 min</div></a>
+    <a href="#mod5" class="index-card"><div class="ic-num">Módulo 5</div><div class="ic-title">Assistente IA avançado</div><div class="ic-time">⏱ ~8 min</div></a>
+    <a href="#mod6" class="index-card"><div class="ic-num">Módulo 6</div><div class="ic-title">Manutenção e segurança</div><div class="ic-time">⏱ ~8 min</div></a>
+    <a href="#mod7" class="index-card"><div class="ic-num">Módulo 7</div><div class="ic-title">Roadmap e próximos passos</div><div class="ic-time">⏱ ~8 min</div></a>
   </div>
-  <div class="mod-nav"><div></div><button class="mod-nav-btn" onclick="goTo(1)">Começar →</button></div>
 </div>
-
-<!-- MÓDULO 1 — PAINEL -->
-<div class="modulo" id="mod-1">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 1 · 8 min</div>
-    <h1 class="mod-title">Painel de controle</h1>
-    <p class="mod-desc">Entenda todos os indicadores e como interpretar os dados do studio em tempo real.</p>
+ 
+<!-- MÓDULO 1 -->
+<div class="modulo" id="mod1">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 1 · 8 min</div><div class="titulo">Painel de controle</div></div>
+    <div class="nav-btns"><a href="#indice" class="nav-btn">← Índice</a><a href="#mod2" class="nav-btn next">Próximo →</a></div>
   </div>
-
-  <div class="script">
-    <div class="script-badge">🎙 Script</div>
-    <button class="script-copy" onclick="copyScript(0)">Copiar</button>
-    <p>"Como administradora, a tela principal da agenda é o seu painel de gestão. Os quatro indicadores no topo — Hoje, Confirmados, Receita Prevista e Pendentes — são o pulso diário do studio. Vamos entender o que cada um significa e como agir sobre eles."</p>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Painel de controle</h2>
+  <p class="desc">Entenda os indicadores e como interpretar os dados do studio em tempo real.</p>
+  <div class="script-box">
+    <div class="script-badge">🎙 Script para áudio</div>
+    <p>"Como administradora, a tela principal é seu painel de gestão. Os quatro indicadores no topo — Hoje, Confirmados, Receita Prevista e Pendentes — são o pulso diário do studio. Vamos entender o que cada um significa e como agir sobre eles."</p>
   </div>
-
   <div class="kpi-grid">
     <div class="kpi"><div class="kpi-num">7</div><div class="kpi-lbl">Hoje</div></div>
     <div class="kpi"><div class="kpi-num">5</div><div class="kpi-lbl">Confirmados</div></div>
     <div class="kpi"><div class="kpi-num">R$940</div><div class="kpi-lbl">Receita prevista</div></div>
     <div class="kpi"><div class="kpi-num">2</div><div class="kpi-lbl">Pendentes</div></div>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">📊</div>O que fazer com cada indicador</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text"><strong>Hoje</strong> — Total de agendamentos do dia. Compare com a capacidade máxima (número de profissionais × horas disponíveis) para saber se há espaço para mais clientes.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text"><strong>Pendentes</strong> — Se houver pendentes, priorize confirmar antes do horário. Use o botão WhatsApp para confirmar rapidamente. Meta: zero pendentes até 2h antes do horário.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text"><strong>Receita Prevista</strong> — Soma dos valores dos agendamentos confirmados. Compare com a meta diária para saber se está no ritmo certo.</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">📊</div>O que fazer com cada indicador</div>
+    <div class="passo"><div class="num">1</div><p><strong>Hoje</strong> — Total de agendamentos. Compare com a capacidade máxima para saber se há espaço para mais clientes.</p></div>
+    <div class="passo"><div class="num">2</div><p><strong>Pendentes</strong> — Priorize confirmar antes do horário. Meta: zero pendentes 2h antes. Use o botão WhatsApp para confirmar rapidamente.</p></div>
+    <div class="passo"><div class="num">3</div><p><strong>Receita Prevista</strong> — Soma dos agendamentos confirmados. Compare com sua meta diária.</p></div>
   </div>
-
-  <div class="dica">
-    <strong>💡 Rotina matinal recomendada</strong>
-    Todo dia ao abrir o studio: 1) Verifique os Pendentes e confirme por WhatsApp. 2) Cheque os horários do dia no filtro por profissional. 3) Certifique que não há conflitos de horário. Isso leva menos de 5 minutos e evita problemas.
-  </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🗓️</div>Navegação avançada no calendário</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text"><strong>Filtro por profissional:</strong> clique no nome de uma profissional no painel lateral para ver só os horários dela — útil para verificar disponibilidade individualmente</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text"><strong>Visão semanal:</strong> navegue pelos dias com as setas ‹ › para fazer o planejamento da semana</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text"><strong>Clique em qualquer dia</strong> no mini calendário para saltar diretamente para aquela data</div>
-    </div>
-  </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(0)">← Índice</button>
-    <button class="mod-nav-btn" onclick="goTo(2)">Próximo →</button>
+  <div class="dica"><strong>💡 Rotina matinal recomendada — 5 minutos</strong>1) Verifique os Pendentes e confirme por WhatsApp. 2) Cheque os horários do dia por profissional. 3) Certifique que não há conflitos. Isso evita problemas ao longo do dia.</div>
+  <div class="card">
+    <div class="card-title"><div class="icon">🗓️</div>Navegação avançada no calendário</div>
+    <div class="passo"><div class="num">1</div><p><strong>Filtro por profissional:</strong> clique no nome no painel lateral para ver só os horários dela</p></div>
+    <div class="passo"><div class="num">2</div><p><strong>Setas ‹ ›:</strong> navegue dia a dia para planejar a semana</p></div>
+    <div class="passo"><div class="num">3</div><p><strong>Mini calendário:</strong> clique em qualquer dia para pular direto para aquela data</p></div>
   </div>
 </div>
-
-<!-- MÓDULO 2 — USUÁRIOS -->
-<div class="modulo" id="mod-2">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 2 · 8 min</div>
-    <h1 class="mod-title">Gestão de usuários e acessos</h1>
-    <p class="mod-desc">Como criar, gerenciar e revogar acessos das profissionais ao sistema.</p>
+ 
+<!-- MÓDULO 2 -->
+<div class="modulo" id="mod2">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 2 · 8 min</div><div class="titulo">Usuários e acessos</div></div>
+    <div class="nav-btns"><a href="#mod1" class="nav-btn">← Anterior</a><a href="#mod3" class="nav-btn next">Próximo →</a></div>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">👤</div>Criar acesso para nova profissional</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Acesse <strong>supabase.com/dashboard/project/tosdbnsuktdogyjardky</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Menu esquerdo → <strong>Authentication</strong> → <strong>Users</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Clique em <strong>"Add user"</strong> → <strong>"Create new user"</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-text">Preencha o <strong>e-mail</strong> e crie uma <strong>senha temporária</strong> forte (mínimo 12 caracteres)</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">5</div>
-      <div class="passo-text">Marque <strong>"Auto Confirm User"</strong> → <strong>Create User</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">6</div>
-      <div class="passo-text">Passe o e-mail e senha para a profissional — oriente a trocar a senha no primeiro acesso</div>
-    </div>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Usuários e acessos</h2>
+  <p class="desc">Como criar, gerenciar e revogar acessos das profissionais ao sistema.</p>
+  <div class="card">
+    <div class="card-title"><div class="icon">👤</div>Criar acesso para nova profissional</div>
+    <div class="passo"><div class="num">1</div><p>Acesse <strong>supabase.com/dashboard/project/tosdbnsuktdogyjardky</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Menu esquerdo → <strong>Authentication</strong> → <strong>Users</strong></p></div>
+    <div class="passo"><div class="num">3</div><p>Clique em <strong>"Add user"</strong> → <strong>"Create new user"</strong></p></div>
+    <div class="passo"><div class="num">4</div><p>Preencha o <strong>e-mail</strong> e crie uma <strong>senha temporária</strong> forte (mínimo 12 caracteres)</p></div>
+    <div class="passo"><div class="num">5</div><p>Marque <strong>"Auto Confirm User"</strong> → <strong>Create User</strong></p></div>
+    <div class="passo"><div class="num">6</div><p>Passe o e-mail e senha para a profissional e oriente a trocar no primeiro acesso</p></div>
   </div>
-
-  <div class="dica">
-    <strong>💡 Boas práticas de senha</strong>
-    Cada profissional deve ter sua própria senha, diferente da das colegas. Sugestão de formato: nome+studio+número. Ex: carol@Studio2026!
+  <div class="card">
+    <div class="card-title"><div class="icon">🔒</div>Revogar acesso</div>
+    <div class="passo"><div class="num">1</div><p>Supabase → Authentication → Users → encontre o usuário</p></div>
+    <div class="passo"><div class="num">2</div><p>Clique nos <strong>três pontos ⋯</strong> → <strong>"Delete user"</strong></p></div>
+    <div class="passo"><div class="num">3</div><p>Acesso revogado imediatamente — agendamentos são mantidos</p></div>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🔒</div>Revogar acesso de profissional</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Supabase → Authentication → Users → encontre o usuário</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Clique nos <strong>três pontos ⋯</strong> ao lado do usuário → <strong>"Delete user"</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">O usuário perde o acesso imediatamente — os agendamentos dele são mantidos no banco</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">💆</div>Adicionar nova profissional ao catálogo</div>
+    <div class="passo"><div class="num">1</div><p>Supabase → <strong>Table Editor</strong> → tabela <strong>professionals</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Clique em <strong>"Insert row"</strong> → preencha nome, cargo e cor (formato #RRGGBB)</p></div>
+    <div class="passo"><div class="num">3</div><p>Ela aparece automaticamente no filtro e no formulário de agendamento</p></div>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">💆</div>Adicionar nova profissional ao catálogo</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Supabase → <strong>Table Editor</strong> → tabela <strong>professionals</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Clique em <strong>"Insert row"</strong> → preencha: nome, cargo (role), cor (formato #RRGGBB)</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Ela aparece automaticamente no filtro lateral da agenda e no formulário de agendamento</div>
-    </div>
-  </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(1)">← Anterior</button>
-    <button class="mod-nav-btn" onclick="goTo(3)">Próximo →</button>
-  </div>
+  <div class="dica"><strong>💡 Boas práticas de senha</strong>Cada profissional deve ter sua própria senha. Sugestão: nome+studio+número. Ex: carol@Studio2026!</div>
 </div>
-
-<!-- MÓDULO 3 — RELATÓRIOS -->
-<div class="modulo" id="mod-3">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 3 · 10 min</div>
-    <h1 class="mod-title">Relatórios e faturamento</h1>
-    <p class="mod-desc">Como extrair insights valiosos dos dados para tomar decisões melhores.</p>
+ 
+<!-- MÓDULO 3 -->
+<div class="modulo" id="mod3">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 3 · 10 min</div><div class="titulo">Relatórios e faturamento</div></div>
+    <div class="nav-btns"><a href="#mod2" class="nav-btn">← Anterior</a><a href="#mod4" class="nav-btn next">Próximo →</a></div>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">📈</div>O que os relatórios mostram</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text"><strong>Total de agendamentos</strong> — Visão geral de movimento do studio</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text"><strong>Receita total</strong> — Soma de todos os agendamentos não cancelados. Use para comparar períodos.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text"><strong>Agendamentos por profissional</strong> — Veja quem está com mais demanda para equilibrar a carga</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-text"><strong>Serviços mais agendados</strong> — Descubra quais serviços são campeões de demanda</div>
-    </div>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Relatórios e faturamento</h2>
+  <p class="desc">Como extrair insights dos dados para tomar melhores decisões.</p>
+  <div class="script-box">
+    <div class="script-badge">🎙 Script para áudio</div>
+    <p>"Os relatórios são onde os dados viram decisões. Vamos explorar cada indicador e como usar as informações para melhorar o negócio do studio."</p>
   </div>
-
-  <div class="dica">
-    <strong>💡 Insights acionáveis dos relatórios</strong>
-    Se um serviço aparece muito nos relatórios (ex: manicure), avalie aumentar a capacidade ou o preço. Se um serviço tem pouca demanda (ex: peeling), crie uma promoção no Instagram. Os dados guiam as decisões!
+  <div class="card">
+    <div class="card-title"><div class="icon">📈</div>O que os relatórios mostram</div>
+    <div class="passo"><div class="num">1</div><p><strong>Total de agendamentos</strong> — visão geral do movimento</p></div>
+    <div class="passo"><div class="num">2</div><p><strong>Receita total</strong> — soma de todos não cancelados. Compare períodos para ver crescimento.</p></div>
+    <div class="passo"><div class="num">3</div><p><strong>Por profissional</strong> — quem está com mais demanda para equilibrar carga</p></div>
+    <div class="passo"><div class="num">4</div><p><strong>Serviços mais agendados</strong> — descubra os campeões de demanda</p></div>
   </div>
-
+  <div class="dica"><strong>💡 Insights acionáveis</strong>Serviço muito demandado? Avalie aumentar o preço. Pouca demanda? Crie promoção no Instagram. Profissional com menos horários? Escale a divulgação. Os dados guiam as decisões!</div>
   <div class="avancado">
-    <div class="avancado-badge">⚡ Consultas avançadas via Supabase</div>
-    <p>Para relatórios mais detalhados (por mês, por período, por cliente VIP), acesse o <strong>SQL Editor do Supabase</strong> e use consultas como:</p>
+    <div class="avancado-badge">⚡ Consulta avançada via Supabase SQL Editor</div>
+    <p>Para relatórios por período, acesse o SQL Editor do Supabase e execute:</p>
     <p><code>SELECT services.name, COUNT(*) as total, SUM(price) as receita FROM appointments JOIN services ON appointments.service_id = services.id WHERE status != 'cancelled' GROUP BY services.name ORDER BY total DESC;</code></p>
-    <p>Isso retorna uma tabela com cada serviço, quantas vezes foi feito e a receita total de cada um.</p>
+    <p>Retorna cada serviço, quantas vezes foi feito e a receita total de cada um.</p>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">📅</div>Relatório mensal — rotina recomendada</div>
+  <div class="card">
+    <div class="card-title"><div class="icon">📅</div>Checklist de relatório mensal</div>
     <div class="checklist">
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box">✓</div>
-        <div class="check-text">Verificar receita total do mês vs meta</div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box">✓</div>
-        <div class="check-text">Ver serviço mais agendado e avaliar preço</div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box">✓</div>
-        <div class="check-text">Identificar profissional com menor demanda e escalar divulgação</div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box">✓</div>
-        <div class="check-text">Exportar dados do Supabase como backup (.csv)</div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box">✓</div>
-        <div class="check-text">Verificar custo da API Anthropic (console.anthropic.com → Billing)</div>
-      </div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Verificar receita total do mês vs meta</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Ver serviço mais agendado e avaliar preço</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Identificar profissional com menor demanda</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Exportar dados do Supabase como backup (.csv)</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Verificar custo da API Anthropic (console.anthropic.com → Billing)</div></div>
     </div>
-  </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(2)">← Anterior</button>
-    <button class="mod-nav-btn" onclick="goTo(4)">Próximo →</button>
   </div>
 </div>
-
-<!-- MÓDULO 4 — AUTOMAÇÕES -->
-<div class="modulo" id="mod-4">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 4 · 10 min</div>
-    <h1 class="mod-title">Automações com WhatsApp</h1>
-    <p class="mod-desc">Como automatizar confirmações, lembretes e reativação de clientes para economizar tempo.</p>
+ 
+<!-- MÓDULO 4 -->
+<div class="modulo" id="mod4">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 4 · 10 min</div><div class="titulo">Automações WhatsApp</div></div>
+    <div class="nav-btns"><a href="#mod3" class="nav-btn">← Anterior</a><a href="#mod5" class="nav-btn next">Próximo →</a></div>
   </div>
-
-  <div class="script">
-    <div class="script-badge">🎙 Script</div>
-    <button class="script-copy" onclick="copyScript(3)">Copiar</button>
-    <p>"Uma das maiores oportunidades de economia de tempo está na comunicação com clientes. Atualmente a agenda já tem botões de WhatsApp integrados — mas podemos ir muito além com automação de mensagens em momentos estratégicos. Vamos ver como implementar isso passo a passo."</p>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Automações com WhatsApp</h2>
+  <p class="desc">Como automatizar confirmações, lembretes e reativação de clientes.</p>
+  <div class="auto-card">
+    <div class="auto-icon">✅</div>
+    <div><div class="auto-title">Confirmação automática — JÁ DISPONÍVEL</div><div class="auto-desc">Ao criar um agendamento, clique no botão WhatsApp verde. Mensagem completa gerada e enviada em 2 cliques.</div><span class="tag tag-easy">✓ Já funciona</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">✅</div>
-    <div>
-      <div class="automacao-title">Confirmação automática — JÁ DISPONÍVEL</div>
-      <div class="automacao-desc">Ao criar um agendamento, clique no botão WhatsApp verde. Uma mensagem completa com todos os dados é gerada e enviada para a cliente em 2 cliques.</div>
-      <span class="automacao-tag tag-easy">✓ Já funciona</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">🔔</div>
+    <div><div class="auto-title">Lembrete 24h — Via Assistente IA</div><div class="auto-desc">Peça ao Assistente IA: "Crie mensagem de lembrete para a Amanda, amanhã às 14h, coloração". Copie e envie pelo WhatsApp.</div><span class="tag tag-easy">✓ Já funciona</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">🔔</div>
-    <div>
-      <div class="automacao-title">Lembrete 24h antes — Manual com IA</div>
-      <div class="automacao-desc">Use o Assistente IA: "Crie uma mensagem de lembrete para a Amanda Costa, amanhã às 14h, serviço de coloração". Copie e envie pelo WhatsApp da agenda.</div>
-      <span class="automacao-tag tag-easy">✓ Já funciona</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">💤</div>
+    <div><div class="auto-title">Reativação de clientes inativos — Via IA</div><div class="auto-desc">No Assistente IA: "Quais clientes não vêm há mais de 60 dias?" → "Crie mensagem de reativação para cada uma".</div><span class="tag tag-easy">✓ Já funciona</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">💤</div>
-    <div>
-      <div class="automacao-title">Reativação de clientes inativos — Via IA</div>
-      <div class="automacao-desc">No Assistente IA, pergunte: "Quais clientes não vêm há mais de 60 dias?". Ele lista e você pode pedir: "Crie mensagem de reativação para cada uma delas".</div>
-      <span class="automacao-tag tag-easy">✓ Já funciona</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">⚡</div>
+    <div><div class="auto-title">Envio automático sem clique — Evolution API</div><div class="auto-desc">Com Evolution API (VPS ~R$50/mês), mensagens são enviadas automaticamente: confirmação ao agendar, lembrete 24h antes, follow-up após atendimento.</div><span class="tag tag-med">⚙️ Requer configuração técnica</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">⚡</div>
-    <div>
-      <div class="automacao-title">Envio automático sem clique — Evolution API</div>
-      <div class="automacao-desc">Com a Evolution API (servidor VPS ~R$50/mês), as mensagens são enviadas automaticamente sem nenhuma interação humana. Confirmação ao agendar, lembrete 24h antes, follow-up após o atendimento.</div>
-      <span class="automacao-tag tag-med">⚙️ Requer configuração técnica</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">📅</div>
+    <div><div class="auto-title">Google Calendar sync</div><div class="auto-desc">Sincronizar agendamentos com Google Calendar via Supabase webhooks. Cada agendamento aparece no calendário do celular.</div><span class="tag tag-med">⚙️ Requer configuração</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">📅</div>
-    <div>
-      <div class="automacao-title">Google Calendar sync</div>
-      <div class="automacao-desc">Sincronizar agendamentos com o Google Calendar via Supabase webhooks. Cada agendamento aparece automaticamente no calendário do celular da Sônia.</div>
-      <span class="automacao-tag tag-med">⚙️ Requer configuração</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">📊</div>
+    <div><div class="auto-title">Relatório semanal automático por WhatsApp</div><div class="auto-desc">Via n8n (gratuito self-hosted): toda segunda-feira às 8h, resumo da semana chega no seu WhatsApp automaticamente.</div><span class="tag tag-hard">🔧 Avançado</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">📊</div>
-    <div>
-      <div class="automacao-title">Relatório semanal automático por WhatsApp</div>
-      <div class="automacao-desc">Via n8n (automação gratuita self-hosted): toda segunda-feira às 8h, um resumo da semana anterior chega no WhatsApp da Sônia automaticamente.</div>
-      <span class="automacao-tag tag-hard">🔧 Avançado</span>
-    </div>
-  </div>
-
-  <div class="dica">
-    <strong>💡 Por onde começar com automações</strong>
-    Comece pelas que já funcionam (confirmação + lembrete via IA). Quando o volume crescer e justificar o custo, implemente a Evolution API. O Google Calendar sync pode ser feito a qualquer momento.
-  </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(3)">← Anterior</button>
-    <button class="mod-nav-btn" onclick="goTo(5)">Próximo →</button>
-  </div>
+  <div class="dica"><strong>💡 Por onde começar</strong>Comece pelas que já funcionam (confirmação + lembrete via IA). Quando o volume crescer e justificar, implemente a Evolution API. Google Calendar pode ser feito a qualquer momento.</div>
 </div>
-
-<!-- MÓDULO 5 — IA AVANÇADO -->
-<div class="modulo" id="mod-5">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 5 · 8 min</div>
-    <h1 class="mod-title">Assistente IA — uso avançado</h1>
-    <p class="mod-desc">Explore todo o potencial do assistente inteligente para gestão e marketing.</p>
+ 
+<!-- MÓDULO 5 -->
+<div class="modulo" id="mod5">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 5 · 8 min</div><div class="titulo">Assistente IA — uso avançado</div></div>
+    <div class="nav-btns"><a href="#mod4" class="nav-btn">← Anterior</a><a href="#mod6" class="nav-btn next">Próximo →</a></div>
   </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🤖</div>O que o Assistente IA consegue fazer</div>
-    <div class="passo">
-      <div class="passo-num">📅</div>
-      <div class="passo-text"><strong>Gestão da agenda:</strong> "Quais horários estão livres hoje para a Carolina?" / "Quantos agendamentos tenho essa semana?"</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">💬</div>
-      <div class="passo-text"><strong>Mensagens WhatsApp:</strong> "Crie uma mensagem de confirmação para a Beatriz, amanhã às 10h, micropigmentação" / "Mensagem para cliente que cancelou"</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">📱</div>
-      <div class="passo-text"><strong>Posts para redes sociais:</strong> "Crie uma legenda para Instagram sobre micropigmentação de sobrancelhas" / "Post para TikTok sobre antes e depois de coloração"</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">💡</div>
-      <div class="passo-text"><strong>Sugestões de serviços:</strong> "O que posso sugerir para uma cliente que fez escova progressiva há 3 meses?"</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">📊</div>
-      <div class="passo-text"><strong>Análise de negócio:</strong> "Como posso aumentar o faturamento em 20%?" / "Quais serviços têm maior margem?"</div>
-    </div>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Assistente IA — uso avançado</h2>
+  <p class="desc">Explore todo o potencial do assistente para gestão e marketing.</p>
+  <div class="card">
+    <div class="card-title"><div class="icon">🤖</div>O que o Assistente IA consegue fazer</div>
+    <div class="passo"><div class="num">📅</div><p><strong>Gestão:</strong> "Quais horários livres hoje para a Carolina?" / "Quantos agendamentos essa semana?"</p></div>
+    <div class="passo"><div class="num">💬</div><p><strong>WhatsApp:</strong> "Crie mensagem de confirmação para Beatriz, amanhã às 10h, micropigmentação"</p></div>
+    <div class="passo"><div class="num">📱</div><p><strong>Redes sociais:</strong> "Legenda para Instagram sobre micropigmentação" / "Post TikTok antes e depois coloração"</p></div>
+    <div class="passo"><div class="num">💡</div><p><strong>Sugestões:</strong> "O que sugerir para cliente que fez progressiva há 3 meses?"</p></div>
+    <div class="passo"><div class="num">📊</div><p><strong>Negócio:</strong> "Como aumentar faturamento 20%?" / "Quais serviços têm maior margem?"</p></div>
   </div>
-
-  <div style="background:var(--dark);border-radius:12px;padding:20px;margin:16px 0">
-    <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:500">20 perguntas poderosas para o Assistente IA</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-      ${[
-        'Quais horários estão livres hoje?',
-        'Resumo do movimento dessa semana',
-        'Clientes que não vêm há 60 dias',
-        'Sugestão de serviço para pós-coloração',
-        'Mensagem de confirmação para Ana',
-        'Post Instagram sobre laser',
-        'Como aumentar ticket médio?',
-        'Serviços mais rentáveis do studio',
-        'Legenda TikTok antes e depois',
-        'Promoção para dia das mães',
-        'Script de captação pelo Instagram',
-        'Como fidelizar clientes de micropig?',
-        'Mensagem de aniversário personalizada',
-        'Dicas de precificação de serviços',
-        'Como lidar com cancelamentos?',
-        'Roteiro de stories para semana',
-        'Sugestão de pacotes de serviço',
-        'Como pedir avaliação no Google?',
-        'Mensagem de reativação pós 90 dias',
-        'Como aumentar indicações entre clientes?'
-      ].map(p=>`<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:8px 10px;font-size:11px;color:rgba(255,255,255,0.55);cursor:pointer;transition:all 0.2s" onclick="copyPrompt('${p}')" title="Clique para copiar">"${p}"</div>`).join('')}
-    </div>
-    <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:10px">Clique em qualquer pergunta para copiar</div>
-  </div>
-
-  <div class="dica">
-    <strong>💡 Como obter melhores respostas da IA</strong>
-    Seja específica: em vez de "crie uma mensagem", diga "crie uma mensagem de WhatsApp para cliente que desmarcou pela segunda vez, tom cordial mas firme, máximo 3 linhas". Quanto mais contexto, melhor a resposta!
-  </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(4)">← Anterior</button>
-    <button class="mod-nav-btn" onclick="goTo(6)">Próximo →</button>
-  </div>
-</div>
-
-<!-- MÓDULO 6 — MANUTENÇÃO -->
-<div class="modulo" id="mod-6">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 6 · 8 min</div>
-    <h1 class="mod-title">Manutenção e atualizações</h1>
-    <p class="mod-desc">Como manter o sistema funcionando, atualizado e seguro.</p>
-  </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🔄</div>Como atualizar o sistema</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Qualquer alteração (novo serviço, novo preço, novo texto) é feita em <strong>github.com/hamilton66/studio-agenda</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Clique no arquivo a editar → lápis ✏️ → faça a alteração → <strong>Commit changes</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">O Vercel detecta a mudança e publica automaticamente em ~1 minuto. Nenhuma ação adicional necessária.</div>
-    </div>
-  </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">💰</div>Atualizar preços e serviços</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Supabase → <strong>Table Editor</strong> → tabela <strong>services</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Clique na linha do serviço que deseja editar</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Altere o valor no campo <strong>price</strong> ou <strong>duration_min</strong> → Enter para salvar</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-text">A alteração reflete instantaneamente na agenda — sem precisar de deploy!</div>
-    </div>
-  </div>
-
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🛡️</div>Checklist de segurança mensal</div>
-    <div class="checklist">
-      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text">Verificar se todos os usuários ativos ainda fazem parte da equipe</div></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text">Checar saldo/custo da API Anthropic em console.anthropic.com</div></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text">Exportar backup dos dados do Supabase (Table Editor → Export CSV)</div></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text">Verificar se o Vercel está com status "Ready" em todos os deploys</div></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text">Trocar senha do GitHub hamilton66 (antes de 16/06/2026 — alerta ativo)</div></div>
-    </div>
-  </div>
-
   <div class="avancado">
-    <div class="avancado-badge">⚡ Solução de problemas rápidos</div>
-    <p><strong style="color:white">Site não carrega:</strong> Vercel → projeto studio-agenda → Deployments → verificar status do último deploy</p>
-    <p><strong style="color:white">IA não responde:</strong> console.anthropic.com → verificar saldo e se a chave <code>studio-agenda</code> está ativa</p>
-    <p><strong style="color:white">Dados não aparecem:</strong> Supabase → Logs → verificar se há erros de conexão</p>
-    <p><strong style="color:white">Login não funciona:</strong> Supabase → Authentication → Users → verificar se o usuário existe e está confirmado</p>
+    <div class="avancado-badge">20 prompts poderosos — copie e use</div>
+    <div class="prompts">
+      <div class="prompt">"Quais horários estão livres hoje?"</div>
+      <div class="prompt">"Resumo do movimento dessa semana"</div>
+      <div class="prompt">"Clientes que não vêm há 60 dias"</div>
+      <div class="prompt">"Sugestão de serviço pós-coloração"</div>
+      <div class="prompt">"Mensagem de confirmação para Ana"</div>
+      <div class="prompt">"Post Instagram sobre laser"</div>
+      <div class="prompt">"Como aumentar ticket médio?"</div>
+      <div class="prompt">"Serviços mais rentáveis do studio"</div>
+      <div class="prompt">"Legenda TikTok antes e depois"</div>
+      <div class="prompt">"Promoção para dia das mães"</div>
+      <div class="prompt">"Script de captação Instagram"</div>
+      <div class="prompt">"Como fidelizar clientes micropig?"</div>
+      <div class="prompt">"Mensagem de aniversário"</div>
+      <div class="prompt">"Dicas de precificação"</div>
+      <div class="prompt">"Como lidar com cancelamentos?"</div>
+      <div class="prompt">"Roteiro de stories da semana"</div>
+      <div class="prompt">"Sugestão de pacotes de serviço"</div>
+      <div class="prompt">"Como pedir avaliação Google?"</div>
+      <div class="prompt">"Reativação pós 90 dias"</div>
+      <div class="prompt">"Como aumentar indicações?"</div>
+    </div>
   </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(5)">← Anterior</button>
-    <button class="mod-nav-btn" onclick="goTo(7)">Próximo →</button>
+  <div class="dica"><strong>💡 Como obter melhores respostas</strong>Seja específica: "crie mensagem WhatsApp para cliente que desmarcou pela segunda vez, tom cordial mas firme, máximo 3 linhas". Quanto mais contexto, melhor a resposta!</div>
+</div>
+ 
+<!-- MÓDULO 6 -->
+<div class="modulo" id="mod6">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 6 · 8 min</div><div class="titulo">Manutenção e segurança</div></div>
+    <div class="nav-btns"><a href="#mod5" class="nav-btn">← Anterior</a><a href="#mod7" class="nav-btn next">Próximo →</a></div>
+  </div>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div></div>
+  <h2>Manutenção e segurança</h2>
+  <p class="desc">Como manter o sistema funcionando, atualizado e seguro.</p>
+  <div class="card">
+    <div class="card-title"><div class="icon">🔄</div>Como atualizar o sistema</div>
+    <div class="passo"><div class="num">1</div><p>Acesse <strong>github.com/hamilton66/studio-agenda</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Clique no arquivo → lápis ✏️ → faça a alteração → <strong>Commit changes</strong></p></div>
+    <div class="passo"><div class="num">3</div><p>Vercel publica automaticamente em ~1 minuto. Nenhuma ação adicional.</p></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">💰</div>Atualizar preços e serviços</div>
+    <div class="passo"><div class="num">1</div><p>Supabase → <strong>Table Editor</strong> → tabela <strong>services</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Clique na linha do serviço → altere o campo <strong>price</strong> ou <strong>duration_min</strong> → Enter</p></div>
+    <div class="passo"><div class="num">3</div><p>Atualiza instantaneamente na agenda — sem deploy!</p></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">🛡️</div>Checklist de segurança mensal</div>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Verificar se todos os usuários ativos ainda fazem parte da equipe</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Checar custo da API Anthropic em console.anthropic.com</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Exportar backup dos dados (Supabase → Table Editor → Export CSV)</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">Verificar status "Ready" no Vercel dashboard</div></div>
+      <div class="check-item"><div class="check-box">✓</div><div class="check-text">⚠️ Trocar senha do GitHub hamilton66 antes de 16/06/2026</div></div>
+    </div>
+  </div>
+  <div class="avancado">
+    <div class="avancado-badge">Solução rápida de problemas</div>
+    <p><strong style="color:white">Site não carrega:</strong> Vercel → studio-agenda → Deployments → verificar último deploy</p>
+    <p><strong style="color:white">IA não responde:</strong> console.anthropic.com → verificar saldo e chave <code>studio-agenda</code></p>
+    <p><strong style="color:white">Dados não aparecem:</strong> Supabase → Logs → verificar erros de conexão</p>
+    <p><strong style="color:white">Login não funciona:</strong> Supabase → Authentication → Users → verificar usuário</p>
   </div>
 </div>
-
-<!-- MÓDULO 7 — ROADMAP -->
-<div class="modulo" id="mod-7">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 7 · 8 min</div>
-    <h1 class="mod-title">Roadmap e próximos passos</h1>
-    <p class="mod-desc">O que ainda pode ser implementado para tornar a agenda ainda mais poderosa.</p>
+ 
+<!-- MÓDULO 7 -->
+<div class="modulo" id="mod7">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 7 · 8 min</div><div class="titulo">Roadmap e próximos passos</div></div>
+    <div class="nav-btns"><a href="#mod6" class="nav-btn">← Anterior</a><a href="#indice" class="nav-btn next">Índice</a></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">🌐</div>
-    <div>
-      <div class="automacao-title">Domínio próprio</div>
-      <div class="automacao-desc">Registrar studiosoniasalomao.com.br no registro.br (~R$40/ano) e apontar para o Vercel. Mais profissional e fácil de lembrar.</div>
-      <span class="automacao-tag tag-easy">Fácil · ~R$40/ano</span>
-    </div>
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div></div>
+  <h2>Roadmap e próximos passos</h2>
+  <p class="desc">O que implementar para tornar a agenda ainda mais poderosa.</p>
+  <div class="auto-card">
+    <div class="auto-icon">🌐</div>
+    <div><div class="auto-title">Domínio próprio</div><div class="auto-desc">Registrar studiosoniasalomao.com.br no registro.br e apontar para o Vercel. Mais profissional.</div><span class="tag tag-easy">Fácil · ~R$40/ano</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">📱</div>
-    <div>
-      <div class="automacao-title">App instalável (PWA)</div>
-      <div class="automacao-desc">Adicionar manifest.json para que a agenda se comporte como app nativo no celular — ícone na tela, funciona offline, notificações.</div>
-      <span class="automacao-tag tag-easy">Fácil · Gratuito</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">📱</div>
+    <div><div class="auto-title">App instalável (PWA)</div><div class="auto-desc">Adicionar manifest.json para que a agenda funcione como app nativo no celular — ícone na tela, funciona offline.</div><span class="tag tag-easy">Fácil · Gratuito</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">🔔</div>
-    <div>
-      <div class="automacao-title">WhatsApp automático (Evolution API)</div>
-      <div class="automacao-desc">Servidor VPS com Evolution API para envio automático de confirmações e lembretes sem nenhum clique humano.</div>
-      <span class="automacao-tag tag-med">Médio · ~R$50/mês</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">🔔</div>
+    <div><div class="auto-title">WhatsApp automático (Evolution API)</div><div class="auto-desc">Confirmações e lembretes enviados automaticamente sem nenhum clique humano.</div><span class="tag tag-med">Médio · ~R$50/mês</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">📅</div>
-    <div>
-      <div class="automacao-title">Google Calendar sync</div>
-      <div class="automacao-desc">Agendamentos aparecem automaticamente no Google Calendar de cada profissional via webhook do Supabase.</div>
-      <span class="automacao-tag tag-med">Médio · Gratuito</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">📅</div>
+    <div><div class="auto-title">Google Calendar sync</div><div class="auto-desc">Agendamentos aparecem automaticamente no Google Calendar de cada profissional.</div><span class="tag tag-med">Médio · Gratuito</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">💳</div>
-    <div>
-      <div class="automacao-title">Pagamento online (Stripe ou PagSeguro)</div>
-      <div class="automacao-desc">Clientes confirmam e pagam a reserva online, reduzindo cancelamentos de última hora.</div>
-      <span class="automacao-tag tag-hard">Avançado · % por transação</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">💳</div>
+    <div><div class="auto-title">Pagamento online</div><div class="auto-desc">Clientes confirmam e pagam a reserva online via Stripe ou PagSeguro, reduzindo cancelamentos.</div><span class="tag tag-hard">Avançado · % por transação</span></div>
   </div>
-
-  <div class="automacao-card">
-    <div class="automacao-icon">⭐</div>
-    <div>
-      <div class="automacao-title">Avaliações automáticas no Google</div>
-      <div class="automacao-desc">Após marcar atendimento como "Concluído", envio automático de mensagem pedindo avaliação no Google Maps do studio.</div>
-      <span class="automacao-tag tag-hard">Avançado · Gratuito</span>
-    </div>
+  <div class="auto-card">
+    <div class="auto-icon">⭐</div>
+    <div><div class="auto-title">Avaliações automáticas no Google</div><div class="auto-desc">Após marcar atendimento como Concluído, envio automático pedindo avaliação no Google Maps.</div><span class="tag tag-hard">Avançado · Gratuito</span></div>
   </div>
-
-  <div class="dica">
-    <strong>💡 Priorização recomendada</strong>
-    1º Domínio próprio (impacto alto, custo baixo) → 2º PWA instalável (impacto alto, gratuito) → 3º Google Calendar sync (muito útil para as profissionais) → 4º WhatsApp automático (quando o volume justificar) → 5º Pagamento online (quando tiver equipe para suporte)
-  </div>
-
-  <!-- CONCLUSÃO -->
-  <div style="background:var(--dark);border-radius:16px;padding:32px;text-align:center;margin:28px 0">
+  <div class="dica"><strong>💡 Priorização recomendada</strong>1º Domínio próprio → 2º PWA instalável → 3º Google Calendar → 4º WhatsApp automático → 5º Pagamento online</div>
+  <div class="fim">
     <div style="font-size:40px;margin-bottom:12px">🏆</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:white;margin-bottom:8px">Curso Admin concluído!</div>
-    <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">Você agora tem o conhecimento completo para administrar, evoluir e automatizar a Agenda Studio Sônia Salomão.</div>
+    <h3>Curso Admin concluído!</h3>
+    <p>Você agora tem o conhecimento completo para administrar, evoluir e automatizar a Agenda Studio Sônia Salomão.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <button onclick="goTo(0)" style="background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:10px 20px;border-radius:16px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px">Revisar o índice</button>
-      <button onclick="window.open('https://studio-agenda.vercel.app')" style="background:var(--gold-dark);color:white;border:none;padding:10px 20px;border-radius:16px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px">Abrir a Agenda →</button>
+      <a href="#indice" class="btn-sec">Revisar o índice</a>
+      <a href="https://studio-agenda.vercel.app" class="btn" target="_blank">Abrir a Agenda →</a>
     </div>
   </div>
-
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(6)">← Anterior</button>
-    <button class="mod-nav-btn" onclick="goTo(0)">Índice</button>
-  </div>
 </div>
-
-<script src="curso-administrador.js"></script>
+ 
 </body>
 </html>

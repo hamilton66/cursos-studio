@@ -3,639 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso — Agenda Studio Sônia Salomão — Usuários</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Curso Usuários — Agenda Studio Sônia Salomão</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --rose:#C8869A;--rose-dark:#9B5A70;--rose-light:#F5E6EB;--rose-pale:#FDF5F7;
-  --gold:#B8943F;--dark:#1A1218;--mid:#4A3342;--muted:#7A6070;
-  --border:#E8D5DC;--white:#fff;--bg:#FDF8FA;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh}
+:root{--rose:#C8869A;--rose-dark:#9B5A70;--rose-light:#F5E6EB;--dark:#1A1218;--mid:#4A3342;--muted:#7A6070;--border:#E8D5DC;--white:#fff;--bg:#FDF8FA;--gold:#B8943F}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark)}
+a{text-decoration:none;color:inherit}
  
 /* CAPA */
-.capa{background:var(--dark);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
-.capa::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(200,134,154,0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(184,148,63,0.1) 0%, transparent 50%)}
-.capa-badge{background:var(--rose);color:white;font-size:11px;padding:5px 14px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;display:inline-block}
-.capa h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,72px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:16px}
+.capa{min-height:100vh;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background:radial-gradient(ellipse at 30% 50%,rgba(200,134,154,0.15),transparent 60%),#1A1218}
+.badge{background:var(--rose);color:white;font-size:11px;padding:5px 14px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;display:inline-block}
+.capa h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,80px);font-weight:300;color:white;line-height:1.1;margin-bottom:16px}
 .capa h1 em{color:var(--rose);font-style:italic}
-.capa p{font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.6;margin-bottom:40px}
-.capa-info{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.capa-info-item{text-align:center}
-.capa-info-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--rose);font-weight:600}
-.capa-info-lbl{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px}
-.btn-start{background:var(--rose-dark);color:white;border:none;padding:16px 36px;border-radius:30px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.3s;letter-spacing:0.5px}
-.btn-start:hover{background:var(--rose);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,134,154,0.4)}
- 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;background:var(--dark);z-index:100;padding:12px 24px;display:none;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.08)}
-.nav.show{display:flex}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--rose);letter-spacing:1px}
-.nav-progress{flex:1;max-width:300px;margin:0 24px}
-.nav-bar{height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
-.nav-bar-fill{height:100%;background:var(--rose);border-radius:2px;transition:width 0.4s ease}
-.nav-text{font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px}
-.nav-btns{display:flex;gap:8px}
-.nav-btn{background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);padding:6px 14px;border-radius:16px;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.nav-btn:hover{border-color:var(--rose);color:var(--rose)}
+.capa p{font-size:16px;color:rgba(255,255,255,0.55);max-width:480px;line-height:1.6;margin-bottom:40px}
+.stats{display:flex;gap:40px;justify-content:center;margin-bottom:48px}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--rose);font-weight:600;display:block}
+.stat-l{font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px}
+.btn{display:inline-block;background:var(--rose-dark);color:white;padding:16px 40px;border-radius:30px;font-size:15px;font-weight:500;letter-spacing:0.5px;transition:background 0.2s}
+.btn:hover{background:var(--rose)}
+.btn-sec{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:12px 24px;border-radius:20px;font-size:13px;margin-top:16px;display:inline-block}
+.btn-sec:hover{border-color:var(--rose);color:var(--rose)}
  
 /* MÓDULO */
-.modulo{display:none;padding:80px 20px 60px;max-width:800px;margin:0 auto}
-.modulo.active{display:block;animation:fadeUp 0.5s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modulo{max-width:760px;margin:0 auto;padding:48px 20px 60px}
+.mod-top{background:var(--dark);padding:20px 24px;border-radius:12px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.mod-top-info .num{font-size:11px;color:var(--rose);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+.mod-top-info .titulo{font-family:'Cormorant Garamond',serif;font-size:22px;color:white;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.nav-btn{background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:8px 16px;border-radius:16px;font-size:12px;font-family:'DM Sans',sans-serif;display:inline-block}
+.nav-btn:hover{border-color:var(--rose);color:var(--rose)}
+.nav-btn.next{background:var(--rose-dark);color:white;border-color:var(--rose-dark)}
+.nav-btn.next:hover{background:var(--rose)}
  
-.mod-header{margin-bottom:36px}
-.mod-num{font-size:11px;color:var(--rose);text-transform:uppercase;letter-spacing:2px;font-weight:500;margin-bottom:8px}
-.mod-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);font-weight:600;line-height:1.2;margin-bottom:12px}
-.mod-desc{font-size:15px;color:var(--muted);line-height:1.7}
+h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;margin-bottom:10px;line-height:1.2}
+.desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px}
  
-/* TELA SIMULADA */
-.tela{background:var(--dark);border-radius:16px;overflow:hidden;margin:28px 0;box-shadow:0 20px 60px rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06)}
-.tela-header{background:#0D0810;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.tela-dot{width:10px;height:10px;border-radius:50%}
-.tela-url{font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;font-family:monospace}
-.tela-body{padding:0}
-.tela-app-header{background:#1A1218;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2A1E24}
-.tela-logo{display:flex;align-items:center;gap:8px}
-.tela-logo-mark{width:28px;height:28px;border-radius:50%;border:1px solid var(--rose);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--rose)}
-.tela-logo-text{font-family:'Cormorant Garamond',serif;font-size:13px;color:white}
-.tela-tabs{display:flex;background:#0D0810;border-bottom:1px solid #2A1E24;overflow-x:auto}
-.tela-tab{padding:9px 14px;font-size:11px;color:rgba(255,255,255,0.4);white-space:nowrap;border-bottom:2px solid transparent}
-.tela-tab.active{color:var(--rose);border-bottom-color:var(--rose)}
-.tela-content{padding:16px;background:#1A1218;min-height:120px}
- 
-/* CONTEÚDO */
-.secao{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0}
-.secao-title{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.secao-icon{width:24px;height:24px;border-radius:50%;background:var(--rose-light);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
-.passo{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.card{background:white;border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:14px}
+.card-title{font-size:13px;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.icon{width:26px;height:26px;border-radius:50%;background:var(--rose-light);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.passo{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
 .passo:last-child{margin-bottom:0}
-.passo-num{width:26px;height:26px;border-radius:50%;background:var(--rose-dark);color:white;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.passo-text{font-size:14px;color:var(--mid);line-height:1.6}
-.passo-text strong{color:var(--dark)}
+.num{width:26px;height:26px;border-radius:50%;background:var(--rose-dark);color:white;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.passo p{font-size:14px;color:var(--mid);line-height:1.6}
+.passo p strong{color:var(--dark)}
  
-.dica{background:var(--gold-light,#F5EDD8);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin:16px 0;font-size:13px;color:#5A3D10;line-height:1.6}
-.dica strong{display:block;margin-bottom:4px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+.dica{background:#F5EDD8;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;font-size:13px;color:#5A3D10;line-height:1.6}
+.dica strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
+.alerta{background:#FEF0F0;border-left:3px solid #E05555;border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;font-size:13px;color:#7A1010;line-height:1.6}
+.alerta strong{display:block;font-size:11px;text-transform:uppercase;margin-bottom:3px}
  
-.alerta{background:#FEF0F0;border-left:3px solid #E05555;border-radius:0 8px 8px 0;padding:12px 16px;margin:16px 0;font-size:13px;color:#7A1010;line-height:1.6}
-.alerta strong{display:block;margin-bottom:4px;font-size:12px;text-transform:uppercase}
- 
-/* SCRIPT AUDIO */
-.script{background:var(--dark);border-radius:12px;padding:20px 24px;margin:20px 0;position:relative}
+.script-box{background:var(--dark);border-radius:12px;padding:20px 24px;margin:20px 0;position:relative}
 .script-badge{position:absolute;top:-10px;left:20px;background:var(--rose-dark);color:white;font-size:10px;padding:3px 10px;border-radius:10px;letter-spacing:1px;text-transform:uppercase}
-.script p{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.8;font-style:italic}
-.script-copy{position:absolute;top:16px;right:16px;background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:4px 10px;border-radius:8px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.script-copy:hover{border-color:var(--rose);color:var(--rose)}
+.script-box p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.8;font-style:italic}
  
-/* QUIZ */
-.quiz{background:var(--rose-pale);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:20px 0}
-.quiz-q{font-size:15px;font-weight:500;margin-bottom:14px}
-.quiz-opts{display:flex;flex-direction:column;gap:8px}
-.quiz-opt{background:white;border:1px solid var(--border);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:13px;transition:all 0.2s;text-align:left;font-family:'DM Sans',sans-serif;color:var(--dark)}
-.quiz-opt:hover{border-color:var(--rose);background:var(--rose-pale)}
-.quiz-opt.correct{background:#E8F5E9;border-color:#5A8A6A;color:#2A5A3A}
-.quiz-opt.wrong{background:#FEEEEE;border-color:#E05555;color:#7A1010}
-.quiz-feedback{margin-top:12px;font-size:13px;display:none;padding:10px 14px;border-radius:8px}
+.cor-box{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.cor-box:last-child{border-bottom:none}
+.cor-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.cor-box p{font-size:13px;color:var(--mid)}
  
-/* NAVEGAÇÃO MÓDULOS */
-.mod-nav{display:flex;gap:12px;margin-top:40px;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.mod-nav-btn{background:var(--rose-dark);color:white;border:none;padding:12px 24px;border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;transition:all 0.2s;display:flex;align-items:center;gap:8px}
-.mod-nav-btn:hover{background:var(--rose);transform:translateY(-1px)}
-.mod-nav-btn.secondary{background:none;border:1px solid var(--border);color:var(--mid)}
-.mod-nav-btn.secondary:hover{border-color:var(--rose);color:var(--rose-dark);transform:none}
-.mod-dots{display:flex;gap:6px}
-.mod-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all 0.2s}
-.mod-dot.active{background:var(--rose-dark);width:20px;border-radius:4px}
+.fim{background:var(--dark);border-radius:16px;padding:32px;text-align:center;margin-top:28px}
+.fim h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:white;margin-bottom:8px}
+.fim p{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px}
  
-/* INDEX */
+/* ÍNDICE */
 .index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
-.index-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:all 0.2s}
+.index-card{background:white;border:1px solid var(--border);border-radius:10px;padding:16px;display:block;transition:all 0.2s}
 .index-card:hover{border-color:var(--rose);transform:translateY(-2px);box-shadow:0 4px 12px rgba(200,134,154,0.15)}
-.index-card-num{font-size:11px;color:var(--rose);font-weight:500;margin-bottom:4px}
-.index-card-title{font-size:13px;font-weight:500;color:var(--dark)}
-.index-card-time{font-size:11px;color:var(--muted);margin-top:4px}
+.ic-num{font-size:11px;color:var(--rose);font-weight:500;margin-bottom:4px}
+.ic-title{font-size:13px;font-weight:500;color:var(--dark)}
+.ic-time{font-size:11px;color:var(--muted);margin-top:4px}
  
-.tag{display:inline-block;background:var(--rose-light);color:var(--rose-dark);font-size:10px;padding:2px 8px;border-radius:8px;font-weight:500;margin:2px}
+/* PROGRESSO */
+.prog{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.prog-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.prog-dot.done{background:var(--rose-dark)}
  
-/* SIMULACAO STATUS */
-.status-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,0.04);border-radius:6px;margin-bottom:6px}
-.status-dot{width:8px;height:8px;border-radius:50%;margin-right:6px;display:inline-block}
-.status-label{font-size:12px;color:rgba(255,255,255,0.6)}
-.status-val{font-size:11px;color:rgba(255,255,255,0.3)}
- 
-@media(max-width:600px){
-  .capa-info{gap:20px}
-  .mod-nav{flex-direction:column}
-}
+@media(max-width:600px){.stats{gap:24px}.mod-top{flex-direction:column}}
 </style>
 </head>
 <body>
-<script>
-// Teste imediato de JS
-window._jsOK = true;
-</script>
  
 <!-- CAPA -->
-<div id="capa">
-  <div class="capa">
-    <div class="capa-badge">📚 Curso Oficial</div>
-    <h1>Agenda<br><em>Studio Sônia</em><br>Salomão</h1>
-    <p>Guia completo para funcionárias do studio. Aprenda a usar a agenda online com segurança e eficiência.</p>
-    <div class="capa-info">
-      <div class="capa-info-item"><div class="capa-info-num">6</div><div class="capa-info-lbl">Módulos</div></div>
-      <div class="capa-info-item"><div class="capa-info-num">~45</div><div class="capa-info-lbl">Minutos</div></div>
-      <div class="capa-info-item"><div class="capa-info-num">6</div><div class="capa-info-lbl">Quizzes</div></div>
+<div class="capa" id="capa">
+  <div class="badge">📚 Curso Oficial</div>
+  <h1>Agenda<br><em>Studio Sônia</em><br>Salomão</h1>
+  <p>Guia completo para funcionárias do studio. Aprenda a usar a agenda online com segurança e eficiência.</p>
+  <div class="stats">
+    <div><span class="stat-n">6</span><span class="stat-l">Módulos</span></div>
+    <div><span class="stat-n">~45</span><span class="stat-l">Minutos</span></div>
+    <div><span class="stat-n">6</span><span class="stat-l">Quizzes</span></div>
+  </div>
+  <a href="#indice" class="btn">Começar o Curso →</a>
+</div>
+ 
+<!-- ÍNDICE -->
+<div class="modulo" id="indice">
+  <div class="mod-top">
+    <div class="mod-top-info">
+      <div class="num">Índice do Curso</div>
+      <div class="titulo">O que você vai aprender</div>
     </div>
-    <button class="btn-start" onclick="startCurso()">Começar o Curso →</button>
-    <noscript><p style="color:rgba(255,255,255,0.5);margin-top:16px;font-size:13px">⚠️ Habilite o JavaScript no navegador para usar o curso interativo.</p></noscript>
-  </div>
-</div>
- 
-<!-- NAV -->
-<div class="nav" id="nav">
-  <div class="nav-logo">SS Agenda</div>
-  <div class="nav-progress">
-    <div class="nav-bar"><div class="nav-bar-fill" id="progress-bar" style="width:0%"></div></div>
-    <div class="nav-text" id="progress-text">Módulo 1 de 7</div>
-  </div>
-  <div class="nav-btns">
-    <button class="nav-btn" onclick="goToIndex()">Índice</button>
-  </div>
-</div>
- 
-<!-- MÓDULO 0 — ÍNDICE -->
-<div class="modulo" id="mod-0">
-  <div class="mod-header">
-    <div class="mod-num">Índice do Curso</div>
-    <h1 class="mod-title">O que você vai aprender</h1>
-    <p class="mod-desc">Clique em qualquer módulo para ir direto ao conteúdo.</p>
+    <div class="nav-btns">
+      <a href="#capa" class="nav-btn">↑ Topo</a>
+      <a href="#mod1" class="nav-btn next">Começar →</a>
+    </div>
   </div>
   <div class="index-grid">
-    <div class="index-card" onclick="goTo(1)">
-      <div class="index-card-num">Módulo 1</div>
-      <div class="index-card-title">Primeiro acesso e login</div>
-      <div class="index-card-time">⏱ ~5 min</div>
-    </div>
-    <div class="index-card" onclick="goTo(2)">
-      <div class="index-card-num">Módulo 2</div>
-      <div class="index-card-title">Conhecendo a agenda</div>
-      <div class="index-card-time">⏱ ~8 min</div>
-    </div>
-    <div class="index-card" onclick="goTo(3)">
-      <div class="index-card-num">Módulo 3</div>
-      <div class="index-card-title">Criar um agendamento</div>
-      <div class="index-card-time">⏱ ~10 min</div>
-    </div>
-    <div class="index-card" onclick="goTo(4)">
-      <div class="index-card-num">Módulo 4</div>
-      <div class="index-card-title">Gerenciar clientes</div>
-      <div class="index-card-time">⏱ ~7 min</div>
-    </div>
-    <div class="index-card" onclick="goTo(5)">
-      <div class="index-card-num">Módulo 5</div>
-      <div class="index-card-title">WhatsApp e confirmações</div>
-      <div class="index-card-time">⏱ ~8 min</div>
-    </div>
-    <div class="index-card" onclick="goTo(6)">
-      <div class="index-card-num">Módulo 6</div>
-      <div class="index-card-title">Dicas do dia a dia</div>
-      <div class="index-card-time">⏱ ~7 min</div>
-    </div>
-  </div>
-  <div class="mod-nav">
-    <div></div>
-    <button class="mod-nav-btn" onclick="goTo(1)">Começar →</button>
+    <a href="#mod1" class="index-card"><div class="ic-num">Módulo 1</div><div class="ic-title">Primeiro acesso e login</div><div class="ic-time">⏱ ~5 min</div></a>
+    <a href="#mod2" class="index-card"><div class="ic-num">Módulo 2</div><div class="ic-title">Conhecendo a agenda</div><div class="ic-time">⏱ ~8 min</div></a>
+    <a href="#mod3" class="index-card"><div class="ic-num">Módulo 3</div><div class="ic-title">Criar um agendamento</div><div class="ic-time">⏱ ~10 min</div></a>
+    <a href="#mod4" class="index-card"><div class="ic-num">Módulo 4</div><div class="ic-title">Gerenciar clientes</div><div class="ic-time">⏱ ~7 min</div></a>
+    <a href="#mod5" class="index-card"><div class="ic-num">Módulo 5</div><div class="ic-title">WhatsApp e confirmações</div><div class="ic-time">⏱ ~8 min</div></a>
+    <a href="#mod6" class="index-card"><div class="ic-num">Módulo 6</div><div class="ic-title">Dicas do dia a dia</div><div class="ic-time">⏱ ~7 min</div></a>
   </div>
 </div>
  
-<!-- MÓDULO 1 — LOGIN -->
-<div class="modulo" id="mod-1">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 1 · 5 min</div>
-    <h1 class="mod-title">Primeiro acesso e login</h1>
-    <p class="mod-desc">Aprenda a entrar na agenda de qualquer dispositivo — celular, tablet ou computador.</p>
+<!-- MÓDULO 1 -->
+<div class="modulo" id="mod1">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 1 · 5 min</div><div class="titulo">Primeiro acesso e login</div></div>
+    <div class="nav-btns"><a href="#indice" class="nav-btn">← Índice</a><a href="#mod2" class="nav-btn next">Próximo →</a></div>
   </div>
- 
-  <div class="script">
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Primeiro acesso e login</h2>
+  <p class="desc">Aprenda a entrar na agenda de qualquer dispositivo — celular, tablet ou computador.</p>
+  <div class="script-box">
     <div class="script-badge">🎙 Script para áudio</div>
-    <button class="script-copy" onclick="copyScript(0)">Copiar</button>
     <p>"Olá! Seja bem-vinda ao curso da Agenda Studio Sônia Salomão. Neste primeiro módulo, você vai aprender como acessar a agenda de qualquer lugar — seja pelo celular, tablet ou computador. Vamos começar!"</p>
   </div>
- 
-  <div class="tela">
-    <div class="tela-header">
-      <div class="tela-dot" style="background:#FF5F57"></div>
-      <div class="tela-dot" style="background:#FFBD2E"></div>
-      <div class="tela-dot" style="background:#28C840"></div>
-      <div class="tela-url">studio-agenda.vercel.app</div>
-    </div>
-    <div class="tela-app-header">
-      <div class="tela-logo">
-        <div class="tela-logo-mark">SS</div>
-        <div class="tela-logo-text">Studio Sônia Salomão</div>
-      </div>
-    </div>
-    <div class="tela-content" style="display:flex;justify-content:center;padding:32px 16px">
-      <div style="background:#1A1218;border:1px solid #2A1E24;border-radius:16px;padding:28px;width:100%;max-width:320px;text-align:center">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:white;font-style:italic;margin-bottom:4px">Studio Sônia Salomão</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px">AGENDA ONLINE · OSASCO/SP</div>
-        <div style="text-align:left;margin-bottom:14px">
-          <div style="font-size:10px;color:var(--rose);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px">E-MAIL</div>
-          <div style="background:#0D0810;border:1px solid #3A2830;border-radius:8px;padding:9px 12px;font-size:13px;color:rgba(255,255,255,0.5)">seu@email.com</div>
-        </div>
-        <div style="text-align:left;margin-bottom:20px">
-          <div style="font-size:10px;color:var(--rose);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px">SENHA</div>
-          <div style="background:#0D0810;border:1px solid #3A2830;border-radius:8px;padding:9px 12px;font-size:13px;color:rgba(255,255,255,0.5)">••••••••</div>
-        </div>
-        <div style="background:var(--rose-dark);color:white;padding:10px;border-radius:20px;font-size:13px;text-align:center">→ Entrar</div>
-      </div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">🔗</div>Como acessar a agenda</div>
+    <div class="passo"><div class="num">1</div><p>Abra o navegador (Chrome, Safari ou Edge) e acesse: <strong>studio-agenda.vercel.app</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Digite seu <strong>e-mail</strong> e a <strong>senha</strong> que a Sônia forneceu para você</p></div>
+    <div class="passo"><div class="num">3</div><p>Clique em <strong>"Entrar"</strong> — a agenda abrirá automaticamente no dia de hoje</p></div>
   </div>
+  <div class="dica"><strong>💡 Salve no celular como app</strong>No Chrome do celular, toque nos 3 pontos ⋮ → "Adicionar à tela inicial". A agenda vira um atalho rápido como um aplicativo!</div>
+  <div class="alerta"><strong>⚠️ Atenção</strong>Nunca compartilhe sua senha com ninguém. Cada profissional tem seu próprio acesso. Se esquecer a senha, avise a Sônia.</div>
+</div>
  
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🔗</div>Como acessar a agenda</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Abra o navegador (Chrome, Safari ou Edge) e acesse: <strong>studio-agenda.vercel.app</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Digite seu <strong>e-mail</strong> e a <strong>senha</strong> que a Sônia forneceu para você</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Clique em <strong>"Entrar"</strong> — a agenda abrirá automaticamente no dia de hoje</div>
-    </div>
+<!-- MÓDULO 2 -->
+<div class="modulo" id="mod2">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 2 · 8 min</div><div class="titulo">Conhecendo a agenda</div></div>
+    <div class="nav-btns"><a href="#mod1" class="nav-btn">← Anterior</a><a href="#mod3" class="nav-btn next">Próximo →</a></div>
   </div>
- 
-  <div class="dica">
-    <strong>💡 Dica — Salve no celular</strong>
-    No Chrome do celular, toque nos 3 pontos ⋮ → "Adicionar à tela inicial". A agenda vira um atalho rápido como um aplicativo!
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Conhecendo a agenda</h2>
+  <p class="desc">Entenda cada parte da tela e o que cada botão faz.</p>
+  <div class="script-box">
+    <div class="script-badge">🎙 Script para áudio</div>
+    <p>"Agora vamos conhecer a tela principal da agenda. Ela tem seis abas no menu superior, um calendário lateral, filtro de profissionais, legenda de cores e a grade de horários do dia. Cada parte tem uma função importante que vamos explorar juntas."</p>
   </div>
- 
-  <div class="alerta">
-    <strong>⚠️ Atenção</strong>
-    Nunca compartilhe sua senha com ninguém. Cada profissional tem seu próprio acesso. Se esquecer a senha, avise a Sônia.
+  <div class="card">
+    <div class="card-title"><div class="icon">🗺️</div>As 6 abas do menu</div>
+    <div class="passo"><div class="num">📅</div><p><strong>Agenda</strong> — Tela principal. Mostra os agendamentos do dia por horário.</p></div>
+    <div class="passo"><div class="num">➕</div><p><strong>Novo</strong> — Cria um novo agendamento com formulário completo.</p></div>
+    <div class="passo"><div class="num">💆</div><p><strong>Serviços</strong> — Lista todos os serviços com preço e duração. Clique para já iniciar um agendamento.</p></div>
+    <div class="passo"><div class="num">👥</div><p><strong>Clientes</strong> — Lista todas as clientes cadastradas com botão direto para WhatsApp.</p></div>
+    <div class="passo"><div class="num">📊</div><p><strong>Relatórios</strong> — Faturamento, serviços mais realizados e estatísticas.</p></div>
+    <div class="passo"><div class="num">🤖</div><p><strong>Assistente IA</strong> — Pergunte qualquer coisa sobre a agenda em linguagem natural.</p></div>
   </div>
- 
-  <div class="quiz">
-    <div class="quiz-q">Qual é o endereço correto para acessar a agenda?</div>
-    <div class="quiz-opts">
-      <button class="quiz-opt" onclick="responder(this, false)">studio-sonia.com.br</button>
-      <button class="quiz-opt" onclick="responder(this, true)">studio-agenda.vercel.app</button>
-      <button class="quiz-opt" onclick="responder(this, false)">agenda.studio.com</button>
-    </div>
-    <div class="quiz-feedback" id="qf-0"></div>
-  </div>
- 
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(0)">← Índice</button>
-    <div class="mod-dots" id="dots-1"></div>
-    <button class="mod-nav-btn" onclick="goTo(2)">Próximo →</button>
+  <div class="card">
+    <div class="card-title"><div class="icon">🎨</div>Legenda de cores</div>
+    <div class="cor-box"><div class="cor-dot" style="background:#9B5A70"></div><p><strong>Rosa escuro</strong> — Agendamento confirmado</p></div>
+    <div class="cor-box"><div class="cor-dot" style="background:#B8943F"></div><p><strong>Dourado</strong> — Pendente de confirmação</p></div>
+    <div class="cor-box"><div class="cor-dot" style="background:#6A7A6A"></div><p><strong>Verde musgo</strong> — Atendimento concluído</p></div>
+    <div class="cor-box"><div class="cor-dot" style="background:#999"></div><p><strong>Cinza</strong> — Cancelado ou não compareceu</p></div>
   </div>
 </div>
  
-<!-- MÓDULO 2 — CONHECENDO A AGENDA -->
-<div class="modulo" id="mod-2">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 2 · 8 min</div>
-    <h1 class="mod-title">Conhecendo a agenda</h1>
-    <p class="mod-desc">Entenda cada parte da tela e o que cada botão faz.</p>
+<!-- MÓDULO 3 -->
+<div class="modulo" id="mod3">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 3 · 10 min</div><div class="titulo">Criar um agendamento</div></div>
+    <div class="nav-btns"><a href="#mod2" class="nav-btn">← Anterior</a><a href="#mod4" class="nav-btn next">Próximo →</a></div>
   </div>
- 
-  <div class="script">
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Criar um agendamento</h2>
+  <p class="desc">Passo a passo completo para registrar um novo horário na agenda.</p>
+  <div class="script-box">
     <div class="script-badge">🎙 Script para áudio</div>
-    <button class="script-copy" onclick="copyScript(1)">Copiar</button>
-    <p>"Agora vamos conhecer a tela principal da agenda. Ela tem cinco seções principais: a barra do topo com os menus, o calendário lateral, a lista de profissionais, a legenda de cores, e a grade de horários do dia. Cada parte tem uma função importante que vamos explorar juntas."</p>
+    <p>"Agora vem a parte mais importante do dia a dia: registrar um novo agendamento. Existem duas formas — clicando diretamente no horário na grade, ou usando a aba mais Novo. Vamos ver as duas formas."</p>
   </div>
- 
-  <div class="tela">
-    <div class="tela-header">
-      <div class="tela-dot" style="background:#FF5F57"></div>
-      <div class="tela-dot" style="background:#FFBD2E"></div>
-      <div class="tela-dot" style="background:#28C840"></div>
-      <div class="tela-url">studio-agenda.vercel.app</div>
-    </div>
-    <div class="tela-app-header">
-      <div class="tela-logo">
-        <div class="tela-logo-mark">SS</div>
-        <div class="tela-logo-text">Studio Sônia Salomão</div>
-      </div>
-      <div style="display:flex;gap:6px">
-        <div style="width:24px;height:24px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:11px;color:white">W</div>
-        <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743);display:flex;align-items:center;justify-content:center;font-size:11px;color:white">I</div>
-      </div>
-    </div>
-    <div class="tela-tabs">
-      <div class="tela-tab active">📅 Agenda</div>
-      <div class="tela-tab">+ Novo</div>
-      <div class="tela-tab">💆 Serviços</div>
-      <div class="tela-tab">👥 Clientes</div>
-      <div class="tela-tab">📊 Relatórios</div>
-      <div class="tela-tab">🤖 Assistente IA</div>
-    </div>
-    <div class="tela-content">
-      <div style="display:grid;grid-template-columns:120px 1fr;gap:10px">
-        <div>
-          <div style="font-size:9px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Calendário</div>
-          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px">
-            {['D','S','T','Q','Q','S','S'].map(d=>`<div style="font-size:8px;color:rgba(255,255,255,0.3);text-align:center">${d}</div>`).join('')}
-          </div>
-          <div style="margin-top:8px;font-size:9px;color:rgba(255,255,255,0.3)">Profissionais</div>
-          <div style="margin-top:6px">
-            <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><div style="width:6px;height:6px;border-radius:50%;background:#C8869A"></div><span style="font-size:10px;color:rgba(255,255,255,0.5)">Sônia</span></div>
-            <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><div style="width:6px;height:6px;border-radius:50%;background:#B8943F"></div><span style="font-size:10px;color:rgba(255,255,255,0.5)">Carolina</span></div>
-            <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><div style="width:6px;height:6px;border-radius:50%;background:#7A6B8A"></div><span style="font-size:10px;color:rgba(255,255,255,0.5)">Ana</span></div>
-            <div style="display:flex;align-items:center;gap:5px"><div style="width:6px;height:6px;border-radius:50%;background:#5A8A6A"></div><span style="font-size:10px;color:rgba(255,255,255,0.5)">Bianca</span></div>
-          </div>
-        </div>
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:white">Quinta, 21 de maio</div>
-            <div style="background:var(--rose-dark);color:white;padding:5px 12px;border-radius:12px;font-size:10px">+ Agendar</div>
-          </div>
-          <div class="status-row"><span class="status-dot" style="background:#9B5A70"></span><span class="status-label">Amanda Costa — Coloração</span><span class="status-val">09:00</span></div>
-          <div class="status-row"><span class="status-dot" style="background:#B8943F"></span><span class="status-label">Beatriz — Micropig.</span><span class="status-val">10:00</span></div>
-          <div class="status-row"><span class="status-dot" style="background:#5A8A6A"></span><span class="status-label">Carla — Manicure</span><span class="status-val">11:00</span></div>
-        </div>
-      </div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">⚡</div>Forma rápida — clicar no horário</div>
+    <div class="passo"><div class="num">1</div><p>Na tela da Agenda, clique <strong>diretamente no horário</strong> desejado na grade (ex: 14:30)</p></div>
+    <div class="passo"><div class="num">2</div><p>Uma janela abre com o horário já preenchido automaticamente</p></div>
+    <div class="passo"><div class="num">3</div><p>Preencha: <strong>nome</strong>, <strong>telefone</strong>, <strong>serviço</strong> e <strong>profissional</strong></p></div>
+    <div class="passo"><div class="num">4</div><p>Clique em <strong>"Confirmar"</strong> — aparece na grade imediatamente</p></div>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🗺️</div>Mapa da tela principal</div>
-    <div class="passo">
-      <div class="passo-num">📅</div>
-      <div class="passo-text"><strong>Aba Agenda</strong> — É a tela principal. Mostra os agendamentos do dia selecionado em ordem de horário.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">➕</div>
-      <div class="passo-text"><strong>Aba Novo</strong> — Clique aqui para criar um novo agendamento manualmente.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">💆</div>
-      <div class="passo-text"><strong>Aba Serviços</strong> — Lista todos os serviços do studio com preço e duração. Clique em um serviço para já iniciar um agendamento com ele.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">👥</div>
-      <div class="passo-text"><strong>Aba Clientes</strong> — Lista todas as clientes cadastradas. Tem botão direto para WhatsApp.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">📊</div>
-      <div class="passo-text"><strong>Relatórios</strong> — Mostra faturamento, serviços mais realizados e origem dos agendamentos.</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">🤖</div>
-      <div class="passo-text"><strong>Assistente IA</strong> — Pergunte qualquer coisa sobre a agenda em linguagem natural.</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">📝</div>Forma completa — aba "+ Novo"</div>
+    <div class="passo"><div class="num">1</div><p>Clique na aba <strong>"+ Novo"</strong> no menu superior</p></div>
+    <div class="passo"><div class="num">2</div><p>Digite o nome da cliente — se já cadastrada, aparece sugestão automática com telefone preenchido</p></div>
+    <div class="passo"><div class="num">3</div><p>Selecione o <strong>serviço</strong> — duração e preço aparecem automaticamente</p></div>
+    <div class="passo"><div class="num">4</div><p>Selecione <strong>data, horário e profissional</strong></p></div>
+    <div class="passo"><div class="num">5</div><p>Clique em <strong>"Confirmar Agendamento"</strong> ou no botão <strong>WhatsApp</strong> para enviar confirmação</p></div>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🎨</div>Legenda de cores dos agendamentos</div>
-    <div class="passo">
-      <div class="passo-num" style="background:#9B5A70">●</div>
-      <div class="passo-text"><strong>Rosa escuro</strong> — Agendamento confirmado</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num" style="background:#B8943F">●</div>
-      <div class="passo-text"><strong>Dourado</strong> — Pendente de confirmação</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num" style="background:#6A7A6A">●</div>
-      <div class="passo-text"><strong>Verde musgo</strong> — Atendimento concluído</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num" style="background:#999">●</div>
-      <div class="passo-text"><strong>Cinza</strong> — Cancelado ou não compareceu</div>
-    </div>
-  </div>
- 
-  <div class="quiz">
-    <div class="quiz-q">Uma cliente confirmou o horário. Qual cor aparece no agendamento dela?</div>
-    <div class="quiz-opts">
-      <button class="quiz-opt" onclick="responder(this, false)">Dourado</button>
-      <button class="quiz-opt" onclick="responder(this, true)">Rosa escuro</button>
-      <button class="quiz-opt" onclick="responder(this, false)">Cinza</button>
-    </div>
-  </div>
- 
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(1)">← Anterior</button>
-    <div class="mod-dots"></div>
-    <button class="mod-nav-btn" onclick="goTo(3)">Próximo →</button>
+  <div class="dica"><strong>💡 Duração automática</strong>Ao selecionar o serviço, o tempo é bloqueado automaticamente. Micropigmentação = 2h, manicure = 1h, remoção de tatuagem = 30min. Nunca haverá conflito de horário!</div>
+  <div class="card">
+    <div class="card-title"><div class="icon">✏️</div>Alterar status de um agendamento</div>
+    <div class="passo"><div class="num">1</div><p>Clique sobre o agendamento na grade</p></div>
+    <div class="passo"><div class="num">2</div><p>Use o <strong>menu de status</strong> para mudar para: Confirmado, Concluído, Cancelado ou Não compareceu</p></div>
+    <div class="passo"><div class="num">3</div><p>A cor na grade atualiza automaticamente</p></div>
   </div>
 </div>
  
-<!-- MÓDULO 3 — CRIAR AGENDAMENTO -->
-<div class="modulo" id="mod-3">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 3 · 10 min</div>
-    <h1 class="mod-title">Criar um agendamento</h1>
-    <p class="mod-desc">Passo a passo completo para registrar um novo horário na agenda.</p>
+<!-- MÓDULO 4 -->
+<div class="modulo" id="mod4">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 4 · 7 min</div><div class="titulo">Gerenciar clientes</div></div>
+    <div class="nav-btns"><a href="#mod3" class="nav-btn">← Anterior</a><a href="#mod5" class="nav-btn next">Próximo →</a></div>
   </div>
- 
-  <div class="script">
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+  <h2>Gerenciar clientes</h2>
+  <p class="desc">Como cadastrar, buscar e se comunicar com as clientes pelo app.</p>
+  <div class="script-box">
     <div class="script-badge">🎙 Script para áudio</div>
-    <button class="script-copy" onclick="copyScript(2)">Copiar</button>
-    <p>"Agora vem a parte mais importante do dia a dia: registrar um novo agendamento. Existem duas formas de fazer isso — clicando diretamente no horário desejado na grade, ou usando o botão verde mais Agendar no topo. Vamos ver as duas formas."</p>
+    <p>"A aba Clientes é onde ficam todas as clientes do studio. Novas clientes são cadastradas automaticamente ao criar o primeiro agendamento. Vamos ver como buscar e entrar em contato."</p>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">⚡</div>Forma rápida — Clicar direto no horário</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Na tela da Agenda, clique <strong>diretamente no horário</strong> desejado na grade (ex: 14:30)</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Uma janela abre automaticamente com o horário já preenchido</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Preencha: <strong>nome da cliente</strong>, <strong>telefone</strong>, <strong>serviço</strong> e <strong>profissional</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-text">Clique em <strong>"Confirmar"</strong> — o agendamento aparece na grade imediatamente</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">🔍</div>Buscar uma cliente</div>
+    <div class="passo"><div class="num">1</div><p>Clique na aba <strong>"Clientes"</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Use o campo de busca — pode digitar o nome ou parte do nome</p></div>
+    <div class="passo"><div class="num">3</div><p>Cada cliente mostra: nome, telefone, data de cadastro e serviços realizados</p></div>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">📝</div>Forma completa — Aba "+ Novo"</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Clique na aba <strong>"+ Novo"</strong> no menu superior</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text"><strong>Nome da cliente:</strong> comece a digitar — se ela já estiver cadastrada, aparece sugestão automática. Clique para selecionar e o telefone preenche sozinho!</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text"><strong>Selecione o serviço</strong> — a duração e o preço aparecem automaticamente embaixo</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-text"><strong>Selecione a data, horário e profissional</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">5</div>
-      <div class="passo-text">Adicione <strong>observações</strong> se necessário (alergias, preferências, etc.)</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">6</div>
-      <div class="passo-text">Clique em <strong>"Confirmar Agendamento"</strong> ou no botão <strong>WhatsApp</strong> para já enviar a confirmação para a cliente</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">💬</div>Enviar WhatsApp para uma cliente</div>
+    <div class="passo"><div class="num">1</div><p>Na lista, encontre a cliente desejada</p></div>
+    <div class="passo"><div class="num">2</div><p>Clique no <strong>ícone verde do WhatsApp</strong> ao lado do nome</p></div>
+    <div class="passo"><div class="num">3</div><p>O WhatsApp abre com o número já preenchido</p></div>
   </div>
- 
-  <div class="dica">
-    <strong>💡 Duração automática</strong>
-    Quando você seleciona o serviço, a agenda já bloqueia o tempo certo automaticamente. Micropigmentação bloqueia 2h, manicure 1h, remoção de tatuagem 30min. Você nunca vai marcar dois horários em cima do outro por engano!
-  </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">✏️</div>Alterar status de um agendamento</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Clique sobre o agendamento na grade</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Uma janela abre com os detalhes. Use o <strong>menu de status</strong> para mudar para: Confirmado, Concluído, Cancelado ou Não compareceu</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">A cor na grade atualiza automaticamente</div>
-    </div>
-  </div>
- 
-  <div class="quiz">
-    <div class="quiz-q">Você selecionou "Escova progressiva" como serviço. O que acontece automaticamente?</div>
-    <div class="quiz-opts">
-      <button class="quiz-opt" onclick="responder(this, false)">Nada, você precisa digitar a duração manualmente</button>
-      <button class="quiz-opt" onclick="responder(this, true)">A duração (120min) e o preço (R$220) aparecem automaticamente</button>
-      <button class="quiz-opt" onclick="responder(this, false)">Um WhatsApp é enviado para a cliente</button>
-    </div>
-  </div>
- 
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(2)">← Anterior</button>
-    <div class="mod-dots"></div>
-    <button class="mod-nav-btn" onclick="goTo(4)">Próximo →</button>
-  </div>
+  <div class="dica"><strong>💡 Cadastro automático</strong>Ao criar o primeiro agendamento de uma cliente nova, ela é cadastrada automaticamente. Basta preencher nome e telefone no formulário!</div>
 </div>
  
-<!-- MÓDULO 4 — CLIENTES -->
-<div class="modulo" id="mod-4">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 4 · 7 min</div>
-    <h1 class="mod-title">Gerenciar clientes</h1>
-    <p class="mod-desc">Como cadastrar, buscar e se comunicar com as clientes pelo app.</p>
+<!-- MÓDULO 5 -->
+<div class="modulo" id="mod5">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 5 · 8 min</div><div class="titulo">WhatsApp e confirmações</div></div>
+    <div class="nav-btns"><a href="#mod4" class="nav-btn">← Anterior</a><a href="#mod6" class="nav-btn next">Próximo →</a></div>
   </div>
- 
-  <div class="script">
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot"></div></div>
+  <h2>WhatsApp e confirmações</h2>
+  <p class="desc">Use os recursos de comunicação integrados para confirmar e lembrar clientes.</p>
+  <div class="script-box">
     <div class="script-badge">🎙 Script para áudio</div>
-    <button class="script-copy" onclick="copyScript(3)">Copiar</button>
-    <p>"A aba Clientes é onde ficam registradas todas as clientes do studio. Cada vez que você cria um agendamento para alguém nova, ela é cadastrada automaticamente. Vamos ver como buscar uma cliente e entrar em contato com ela."</p>
+    <p>"A agenda está conectada ao WhatsApp, Instagram e TikTok. Você pode enviar confirmações com mensagem pronta, sem precisar digitar nada. Vamos ver como funciona."</p>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🔍</div>Buscar uma cliente</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Clique na aba <strong>"Clientes"</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Use o campo de busca no topo — pode digitar o <strong>nome</strong> ou parte do nome</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Cada cliente mostra: nome, telefone, data do primeiro cadastro e serviços que já fez</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">📱</div>Enviar confirmação pelo WhatsApp</div>
+    <div class="passo"><div class="num">1</div><p>Ao criar agendamento, clique no botão <strong>WhatsApp verde</strong></p></div>
+    <div class="passo"><div class="num">2</div><p>Uma mensagem completa abre no WhatsApp: nome, serviço, data, horário e valor</p></div>
+    <div class="passo"><div class="num">3</div><p>Clique em <strong>"Enviar"</strong> — mensagem já formatada!</p></div>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">💬</div>Enviar WhatsApp para uma cliente</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Na lista de clientes, encontre a cliente desejada</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Clique no <strong>ícone verde do WhatsApp</strong> ao lado do nome dela</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">O WhatsApp abre automaticamente com o número já preenchido</div>
-    </div>
-  </div>
- 
-  <div class="dica">
-    <strong>💡 Autocompletar no agendamento</strong>
-    Quando for criar um novo agendamento, comece a digitar o nome da cliente. Se ela já estiver cadastrada, aparece uma sugestão — clique nela e o telefone preenche automaticamente. Economiza tempo!
-  </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">➕</div>Cadastrar nova cliente</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Clientes novas são cadastradas <strong>automaticamente</strong> quando você cria o primeiro agendamento delas</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Basta preencher nome e telefone no formulário de agendamento — ela entra para a base de clientes sozinha</div>
-    </div>
-  </div>
- 
-  <div class="quiz">
-    <div class="quiz-q">Como cadastrar uma cliente nova na agenda?</div>
-    <div class="quiz-opts">
-      <button class="quiz-opt" onclick="responder(this, false)">Precisa ir na aba Clientes e clicar em "Adicionar"</button>
-      <button class="quiz-opt" onclick="responder(this, true)">Ela é cadastrada automaticamente ao criar o primeiro agendamento</button>
-      <button class="quiz-opt" onclick="responder(this, false)">Precisa pedir para o administrador cadastrar</button>
-    </div>
-  </div>
- 
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(3)">← Anterior</button>
-    <div class="mod-dots"></div>
-    <button class="mod-nav-btn" onclick="goTo(5)">Próximo →</button>
-  </div>
-</div>
- 
-<!-- MÓDULO 5 — WHATSAPP -->
-<div class="modulo" id="mod-5">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 5 · 8 min</div>
-    <h1 class="mod-title">WhatsApp e confirmações</h1>
-    <p class="mod-desc">Aprenda a usar os recursos de comunicação integrados à agenda.</p>
-  </div>
- 
-  <div class="script">
-    <div class="script-badge">🎙 Script para áudio</div>
-    <button class="script-copy" onclick="copyScript(4)">Copiar</button>
-    <p>"A agenda está conectada ao WhatsApp, Instagram e TikTok. Isso significa que você pode enviar confirmações, lembretes e mensagens diretamente pelo app, sem precisar copiar e colar nada. Vamos ver como funciona."</p>
-  </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">📱</div>Enviar confirmação pelo WhatsApp</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Ao criar um novo agendamento, clique no botão <strong>"WhatsApp"</strong> verde em vez de "Confirmar"</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Uma mensagem pronta abre no WhatsApp com: nome da cliente, serviço, data, horário e valor</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">Você só precisa clicar em <strong>"Enviar"</strong> — a mensagem já está formatada!</div>
-    </div>
-  </div>
- 
-  <div style="background:var(--dark);border-radius:12px;padding:16px;margin:16px 0">
+  <div style="background:var(--dark);border-radius:10px;padding:16px;margin:14px 0">
     <div style="font-size:10px;color:var(--rose);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Exemplo de mensagem automática</div>
     <div style="background:#0D0810;border-radius:8px;padding:14px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;border:1px solid #2A1E24">
       Olá Amanda! 💜<br><br>
@@ -644,138 +266,48 @@ window._jsOK = true;
       📅 Data: 22/05/2026<br>
       ⏰ Horário: 09:00<br>
       💰 Valor: R$180<br><br>
-      Aguardamos você!<br>
-      📍 Osasco/SP
+      Aguardamos você! 📍 Osasco/SP
     </div>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">🔔</div>Enviar lembrete de um agendamento existente</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text">Clique sobre o agendamento na grade</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text">Na janela de detalhes, clique no <strong>botão WhatsApp</strong></div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text">O WhatsApp abre com a mensagem de confirmação pronta para enviar</div>
-    </div>
-  </div>
- 
-  <div class="dica">
-    <strong>💡 Use o Assistente IA para criar mensagens personalizadas</strong>
-    Clique em "Assistente IA" e peça: "Crie uma mensagem de lembrete para cliente que não vem há 2 meses". O assistente cria a mensagem na hora — você só copia e cola no WhatsApp!
-  </div>
- 
-  <div class="quiz">
-    <div class="quiz-q">Qual a vantagem do botão WhatsApp na agenda?</div>
-    <div class="quiz-opts">
-      <button class="quiz-opt" onclick="responder(this, false)">Ele envia a mensagem automaticamente sem você precisar fazer nada</button>
-      <button class="quiz-opt" onclick="responder(this, true)">Ele abre o WhatsApp com a mensagem já pronta, você só clica em enviar</button>
-      <button class="quiz-opt" onclick="responder(this, false)">Ele só funciona no computador, não no celular</button>
-    </div>
-  </div>
- 
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(4)">← Anterior</button>
-    <div class="mod-dots"></div>
-    <button class="mod-nav-btn" onclick="goTo(6)">Próximo →</button>
-  </div>
+  <div class="dica"><strong>💡 Lembrete pelo Assistente IA</strong>Acesse a aba "Assistente IA" e peça: "Crie mensagem de lembrete para a Amanda, amanhã às 14h, coloração". Copie e envie pelo WhatsApp!</div>
 </div>
  
-<!-- MÓDULO 6 — DICAS -->
-<div class="modulo" id="mod-6">
-  <div class="mod-header">
-    <div class="mod-num">Módulo 6 · 7 min</div>
-    <h1 class="mod-title">Dicas do dia a dia</h1>
-    <p class="mod-desc">Truques para usar a agenda com mais velocidade e eficiência.</p>
+<!-- MÓDULO 6 -->
+<div class="modulo" id="mod6">
+  <div class="mod-top">
+    <div class="mod-top-info"><div class="num">Módulo 6 · 7 min</div><div class="titulo">Dicas do dia a dia</div></div>
+    <div class="nav-btns"><a href="#mod5" class="nav-btn">← Anterior</a><a href="#indice" class="nav-btn next">Índice</a></div>
   </div>
- 
-  <div class="script">
+  <div class="prog"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div></div>
+  <h2>Dicas do dia a dia</h2>
+  <p class="desc">10 truques para usar a agenda mais rápido e com mais eficiência.</p>
+  <div class="script-box">
     <div class="script-badge">🎙 Script para áudio</div>
-    <button class="script-copy" onclick="copyScript(5)">Copiar</button>
-    <p>"Chegamos ao último módulo! Aqui você vai aprender os truques que vão fazer você usar a agenda muito mais rápido no dia a dia. São pequenas dicas que fazem grande diferença quando você está atendendo e precisa registrar um horário rápido."</p>
+    <p>"Chegamos ao último módulo! Aqui estão os truques que fazem grande diferença quando você está atendendo e precisa registrar um horário rápido."</p>
   </div>
- 
-  <div class="secao">
-    <div class="secao-title"><div class="secao-icon">⚡</div>10 dicas de produtividade</div>
-    <div class="passo">
-      <div class="passo-num">1</div>
-      <div class="passo-text"><strong>Salve no celular como app:</strong> Chrome → ⋮ → "Adicionar à tela inicial". Acesso em 1 toque!</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">2</div>
-      <div class="passo-text"><strong>Clique direto no horário</strong> na grade para agendar mais rápido — não precisa ir em "+ Novo"</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">3</div>
-      <div class="passo-text"><strong>Use o autocompletar:</strong> comece a digitar o nome da cliente e selecione da lista — não precisa digitar o telefone</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-text"><strong>Filtre por profissional:</strong> clique no nome da profissional no filtro lateral para ver só os horários dela</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">5</div>
-      <div class="passo-text"><strong>Navegue pelo calendário:</strong> clique em qualquer dia no mini calendário para ver a agenda daquele dia</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">6</div>
-      <div class="passo-text"><strong>Use as setas ‹ ›</strong> para navegar dia a dia sem precisar usar o calendário</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">7</div>
-      <div class="passo-text"><strong>Confira os stats no topo:</strong> os 4 números (Hoje, Confirmados, Receita, Pendentes) dão o resumo do dia em segundos</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">8</div>
-      <div class="passo-text"><strong>Marque como concluído</strong> após o atendimento — ajuda nos relatórios de faturamento</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">9</div>
-      <div class="passo-text"><strong>Use o campo de observações</strong> para registrar alergias e preferências — fica salvo para sempre</div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">10</div>
-      <div class="passo-text"><strong>Assistente IA:</strong> pode perguntar "Quais horários estão livres hoje?" ou "Crie mensagem de confirmação" — ele responde na hora!</div>
-    </div>
+  <div class="card">
+    <div class="card-title"><div class="icon">⚡</div>10 dicas de produtividade</div>
+    <div class="passo"><div class="num">1</div><p><strong>Salve no celular:</strong> Chrome → ⋮ → "Adicionar à tela inicial". Acesso em 1 toque!</p></div>
+    <div class="passo"><div class="num">2</div><p><strong>Clique direto no horário</strong> para agendar — mais rápido que "+ Novo"</p></div>
+    <div class="passo"><div class="num">3</div><p><strong>Autocompletar:</strong> comece a digitar o nome e selecione da lista — telefone preenche sozinho</p></div>
+    <div class="passo"><div class="num">4</div><p><strong>Filtre por profissional:</strong> clique no nome no filtro lateral para ver só os horários dela</p></div>
+    <div class="passo"><div class="num">5</div><p><strong>Mini calendário:</strong> clique em qualquer dia para ver a agenda daquele dia</p></div>
+    <div class="passo"><div class="num">6</div><p><strong>Setas ‹ ›</strong> para navegar dia a dia sem usar o calendário</p></div>
+    <div class="passo"><div class="num">7</div><p><strong>Stats no topo:</strong> 4 números resumem o dia — Hoje, Confirmados, Receita, Pendentes</p></div>
+    <div class="passo"><div class="num">8</div><p><strong>Marque como concluído</strong> após o atendimento — ajuda nos relatórios</p></div>
+    <div class="passo"><div class="num">9</div><p><strong>Observações:</strong> registre alergias e preferências — ficam salvas para sempre</p></div>
+    <div class="passo"><div class="num">10</div><p><strong>Assistente IA:</strong> pergunte "Quais horários livres hoje?" — ele responde na hora!</p></div>
   </div>
- 
-  <div class="dica">
-    <strong>💡 Em caso de dúvida</strong>
-    Use o Assistente IA (aba com o robô 🤖) e pergunte em linguagem normal, como se estivesse falando com uma pessoa. Ele conhece tudo sobre a agenda e pode ajudar com qualquer situação.
-  </div>
- 
-  <div class="quiz">
-    <div class="quiz-q">Qual a forma mais rápida de criar um agendamento?</div>
-    <div class="quiz-opts">
-      <button class="quiz-opt" onclick="responder(this, false)">Clicar na aba "+ Novo" e preencher o formulário</button>
-      <button class="quiz-opt" onclick="responder(this, true)">Clicar diretamente no horário desejado na grade da agenda</button>
-      <button class="quiz-opt" onclick="responder(this, false)">Enviar mensagem pelo WhatsApp para a Sônia</button>
-    </div>
-  </div>
- 
-  <!-- CONCLUSÃO -->
-  <div style="background:var(--dark);border-radius:16px;padding:32px;text-align:center;margin:28px 0">
+  <div class="fim">
     <div style="font-size:40px;margin-bottom:12px">🎉</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:white;margin-bottom:8px">Curso concluído!</div>
-    <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6">Você aprendeu tudo o que precisa para usar a agenda do Studio Sônia Salomão com segurança e eficiência.</div>
+    <h3>Curso concluído!</h3>
+    <p>Você aprendeu tudo para usar a agenda com segurança e eficiência.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <button onclick="goTo(0)" style="background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:10px 20px;border-radius:16px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px">Revisar o índice</button>
-      <button onclick="window.open('studio-agenda.vercel.app')" style="background:var(--rose-dark);color:white;border:none;padding:10px 20px;border-radius:16px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px">Abrir a Agenda →</button>
+      <a href="#indice" class="btn-sec">Revisar o índice</a>
+      <a href="https://studio-agenda.vercel.app" class="btn" target="_blank">Abrir a Agenda →</a>
     </div>
-  </div>
- 
-  <div class="mod-nav">
-    <button class="mod-nav-btn secondary" onclick="goTo(5)">← Anterior</button>
-    <div class="mod-dots"></div>
-    <button class="mod-nav-btn" onclick="goTo(0)">Índice</button>
   </div>
 </div>
  
-<script src="curso-usuarios.js"></script>
 </body>
 </html>
